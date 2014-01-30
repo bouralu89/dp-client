@@ -5,7 +5,6 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-contrib-rename');
-    grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-template');
     grunt.loadNpmTasks('grunt-cordovacli');
 
