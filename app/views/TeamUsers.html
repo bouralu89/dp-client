@@ -1,0 +1,12 @@
+<div class="content-no-tab row scroll-y">
+    <div class="nodata" ng-if="users.length == 0">
+            No users
+        </div>
+    <a href="" bindonce ng-repeat="user in users" class="list" ng-click="go_to('UserDetail/' + user._id)">
+        <img bo-src="url + '/user/' + user._id + '/img'" alt="" class="logo">
+        <div class="info">
+            <div id="title" bo-text="user.first_name + ' ' + user.surname"></div>
+            <div id="subtitle" bo-text="user.username"></div>
+        </div>
+    </a>
+</div>

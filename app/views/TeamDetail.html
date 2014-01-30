@@ -1,0 +1,56 @@
+<div class="tm_wrapper" ng-if="topmenu" ng-click="topmenu = !topmenu">
+    <div class="top_menu">
+        <ul>
+            <li ng-click="go_to('NewMessage')">
+            <a href="">
+                <i class="fa fa-pencil fa-lg fa-fw icon-darker"></i>New message</a>
+            </li>
+            <li ng-click="go_to('Tasks/' + teamId + '/current')"><a href="">
+                <i class="fa fa-clipboard fa-lg fa-fw icon-darker"></i>Current tasks
+                <span class="badge" ng-bind="team.tasksNumber"></span></a>
+            </li>
+            <li ng-click="go_to('Tasks/' + teamId + '/archive')"><a href="">
+                <i class="fa fa-archive fa-lg fa-fw icon-darker"></i>Tasks archive
+                <span class="badge" ng-bind="team.tasksNumberHistory"></span></a>
+            </li>
+            <li ng-click="go_to('UserDetail/' + team.manager._id)"><a href="">
+                <i class="fa fa-user fa-lg fa-fw icon-darker"></i>Manager info</a></li>
+        </ul>
+    </div>
+</div>
+<div id="scroller" bindonce="team" class="content-no-tab row scroll-y">
+
+    <div id="teamDetail" background="{{url}}/team/{{teamId}}/img">
+        <div class="info">
+            <span bo-text="team.name" id="name"></span>
+            <span bo-text="team.manager.first_name + ' ' + team.manager.surname" id="manager"></span>
+        </div>
+    </div>
+    <div class="team-tab">
+        <div class="item" ng-click="go_to('/Tasks/' + team._id + '/current')">
+            <span bo-text="team.tasksNumber" class="value"></span>
+            <span>Current tasks</span>
+        </div>
+        <div class="item" ng-click="go_to('/TeamUsers/' + team._id)">
+            <span bo-text="team.users.length" class="value"></span>
+            <span>Users</span>
+        </div>
+    </div>
+    <div id="team_msgs">
+    <div class="nodata" ng-if="msgs.length == 0">
+            No messages
+        </div>
+        <div bindonce ng-repeat="msg in msgs" class="message" ng-click="openMessage(msgs[$index])">
+            <div class="head">
+                <img bo-src="url + '/user/' + msg.user._id + '/img'" alt="" class="logo" border="0">
+                <div class="info">
+                    <span id="name" bo-text="msg.user.first_name + ' ' + msg.user.surname"></span>
+                    <span id="team" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
+
+                </div>
+            </div>
+            <div id="text" bo-text="msg.text"></div>
+        </div>
+    </div>
+
+</div>

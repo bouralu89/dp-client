@@ -1,0 +1,9 @@
+<div class="content-no-tab row scroll-y">
+    <a href="" ng-repeat="team in teams" class="list" ng-click="go_to('TeamDetail/' + team._id)">
+        <img ng-src="{{url}}/team/{{team._id}}/img" alt="" class="logo">
+        <div class="info">
+            <span id="title">{{team.name}}</span>
+            <span id="subtitle">{{team.code}}</span>
+        </div>
+    </a>
+</div>

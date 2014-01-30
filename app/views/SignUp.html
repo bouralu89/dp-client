@@ -1,0 +1,64 @@
+<div class="header signup row">
+	<span class="title">Sign Up</span>
+	<a href="" ng-click="go_back()" class="nav-icon-left">
+        <i class="fa fa-chevron-left fa-2x fa-fw icon-green"></i>
+    </a>
+</div>
+<div class="content-no-tab row scroll-y">
+		<form class="editor" name="signupform" ng-submit="signup(user)">
+			<div class="container_12 inactive">
+				<div class="grid_3 placeholder">
+					<span>First name</span>
+				</div>
+				<div class="grid_9">
+					<input type="text" ng-model="user.first_name" required>
+				</div>
+			</div>
+			<div class="container_12 inactive no-margin">
+				<div class="grid_3 placeholder">
+					<span>Last name</span>
+				</div>
+				<div class="grid_9">
+					<input type="text" ng-model="user.surname" required>
+				</div>
+			</div>
+			<div class="container_12 inactive no-margin">
+				<div class="grid_3 placeholder">
+					<span>Email</span>
+				</div>
+				<div class="grid_9">
+					<input type="email" ng-model="user.email" required>
+				</div>
+			</div>
+			<div class="container_12 inactive no-margin">
+				<div class="grid_3 placeholder">
+					<span>Username</span>
+				</div>
+				<div class="grid_9">
+					<input type="text" ng-model="user.username" required>
+				</div>
+			</div>
+			<div class="container_12 inactive">
+				<div class="grid_3 placeholder">
+					<span>Password</span>
+				</div>
+				<div class="grid_9">
+					<input type="password" ng-model="user.password" required>
+				</div>
+			</div>
+			<div class="container_12 inactive no-margin">
+				<div class="grid_3 placeholder">
+					<span>Pass. ver.</span>
+				</div>
+				<div class="grid_9">
+					<input type="password" ng-model="confirmpassword" required>
+				</div>
+			</div>
+			<div class="container_12">
+				<div class="grid_12">
+					<button type="submit" class="blue">Sign up</button>
+				</div>
+			</div>
+		</form>
+
+</div>

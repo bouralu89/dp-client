@@ -1,0 +1,25 @@
+{
+  "name": "HybridApp",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-usemin": "~0.1.11",
+    "load-grunt-tasks": "~0.1.0",
+    "grunt-ngmin": "~0.0.2",
+    "time-grunt": "~0.1.0",
+    "grunt-html2js": "~0.1.8",
+    "grunt-contrib-rename": "0.0.3",
+    "grunt-template": "~0.2.2",
+    "grunt-cordovacli": "~0.3.4"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

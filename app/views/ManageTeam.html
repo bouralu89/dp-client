@@ -1,0 +1,28 @@
+<div class="content-no-tab row editor">
+    <a href="" class="container_12 line" ng-click="go_to('EditTeam')">
+        <div class="grid_2">
+            <img ng-src="{{url}}/team/{{teamID}}/img" alt="" class="logo">
+        </div>
+        <div class="grid_10">
+            <span>Edit team profile</span>
+        </div>
+    </a>
+    <a href="" class="container_12 line" ng-click="manageTasks()">
+        <div class="grid_2">
+            <i class="fa fa-clipboard fa-2x fa-fw icon-darker"></i>
+        </div>
+        <div class="grid_10">
+            <span>Tasks</span>
+            <div class="badge">{{team.tasksNumber}}</div>
+        </div>
+    </a>
+    <a href="" class="container_12 line no-margin" ng-click="manageUsers()">
+        <div class="grid_2">
+            <i class="fa fa-users fa-2x fa-fw icon-darker"></i>
+        </div>
+        <div class="grid_10">
+            <span>Users</span>
+            <div class="badge">{{team.users.length}}</div>
+        </div>
+    </a>
+</div>

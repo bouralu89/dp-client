@@ -1,0 +1,12 @@
+<div class="content-no-tab row scroll-y">
+    <div class="nodata" ng-if="teams.length == 0">
+            No teams
+        </div>
+    <a href="" bindonce ng-repeat="team in teams" class="list" ng-click="go_to('ManageTeam/' + team._id)">
+        <img bo-src="url + '/team/' + team._id + '/img'" alt="" class="logo">
+        <div class="info">
+            <span id="title" bo-text="team.name"></span>
+            <span id="subtitle" bo-text="team.code"></span>
+        </div>
+    </a>
+</div>

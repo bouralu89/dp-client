@@ -1,0 +1,28 @@
+<div id="scroller" bindonce="task" class="content-no-tab row scroll-y">
+	<div class="task-wrapper">
+		<div id="task-detail">
+
+			<div class="container_12 info">
+				<div class="grid_2">
+					<img bo-src="url + '/team/' + task.team._id + '/img'" ng-if="task">
+				</div>
+				<div class="grid_10">
+					<div class="title" bo-text="task.title"></div>
+					<div class="teamName" bo-text="task.team.name"></div>
+				</div>
+			</div>
+
+			<div class="dates" id="dates">
+				<span bo-text="task.created | format:'DD.MM.YYYY HH:mm'" id="created"></span>
+				<span bo-text="task.endDate | format:'DD.MM.YYYY HH:mm'" id="deadline"></span>
+				<span id="created_desc">created</span>
+				<span id="deadline_desc">deadline</span>
+			</div>
+			
+		</div>
+
+		<div class="task_text">
+			<p bo-text="task.text"></p>
+		</div> 
+	</div>
+</div>

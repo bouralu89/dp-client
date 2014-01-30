@@ -1,0 +1,25 @@
+<div class="content-no-tab row scroll-y">
+    <div class="editor">
+        <div class="container_12 inactive no-margin">
+            <div class="grid_2 placeholder">
+                <span>Title:</span>
+            </div>
+            <div class="grid_10">
+                <input ng-model="task.title">
+            </div>
+        </div>
+        <div class="container_12 inactive no-margin">
+            <div class="grid_2 placeholder">
+                <span>Date:</span>
+            </div>
+            <div class="grid_10">
+                <input type="datetime" ng-model="task.endDate">
+            </div>
+        </div>
+        <div class="container_12 inactive no-margin scroll-y" style="position: absolute;top:96px;left:0;height: -webkit-calc(100% - 96px);">
+            <div class="grid_12" style="height: 100%;">
+                <textarea style="height: 100%;" ng-model="task.text" placeholder="Write some text...">
+            </div>
+        </div>
+    </div>
+</div>

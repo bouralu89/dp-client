@@ -1,0 +1,41 @@
+<div class="content-no-tab row scroll-y">
+    <form class="editor" name="newTeam" ng-submit="create(team)">
+        <div href="" class="container_12 inactive" style="margin-top:10px !important">
+            <div class="grid_2 placeholder">
+                <span>Name:</span>
+            </div>
+            <div class="grid_10">
+                <input type="text" ng-model="team.name" required>
+            </div>
+        </div>
+        <div href="" class="container_12 inactive no-margin">
+            <div class="grid_2 placeholder">
+                <span>Code:</span>
+            </div>
+            <div class="grid_10">
+                <input type="text" ng-model="team.code" required>
+            </div>
+        </div>
+        <div href="" class="container_12 inactive no-margin">
+            <div class="grid_2 placeholder">
+                <span>Info:</span>
+            </div>
+            <div class="grid_10">
+                <textarea rows="6" ng-model="team.description" required></textarea>
+            </div>
+        </div>
+        <div href="" class="container_12 inactive">
+            <div class="grid_2 placeholder">
+                <span>Password:</span>
+            </div>
+            <div class="grid_10">
+                <input type="password" ng-model="team.password" required>
+            </div>
+        </div>
+        <div class="container_12">
+            <div class="grid_12" ng-click="login(user)">
+                <button type="submit" class="green">Create team</button>
+            </div>
+        </div>
+    </form>
+</div>

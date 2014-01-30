@@ -1,0 +1,37 @@
+<div class="content-no-tab row scroll-y" bindonce="user">
+    <div class="userInfo">
+        <div class="pic">
+            <img bo-src="url + '/user/' + user._id + '/img'" alt="">
+        </div>
+        <div class="info">
+            <span class="name" bo-text="user.first_name + ' ' + user.surname"></span>
+            <span class="username" bo-text="user.username"></span>
+        </div>
+    </div>
+    <div class="user-tab">
+        <div class="item" ng-click="go_to('TeamList/manager/' + user._id)">
+            <span bo-text="user.teams.manager" class="value">loading...</span>
+            <span>As manager</span>
+        </div>
+        <div class="item" ng-click="go_to('TeamList/user/' + user._id)">
+            <span bo-text="user.teams.user" class="value">loading...</span>
+            <span>As user</span>
+        </div>
+    </div>
+    <div class="label">
+        E-mail
+    </div>
+    <div class="labelItem" bo-text="user.email"></div>
+    <div class="label">
+        Number
+    </div>
+    <div class="labelItem" bo-text="user.phoneNumber"></div>
+    <form class="editor" style="margin-top: 10px;">
+        <div class="container_12">
+            <div class="grid_12">
+                <button type="submit" class="red" ng-click="removeFromTeam()">Remove from team</button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,57 @@
+<div class="content-no-tab row scroll-y">
+    <form class="editor" name="newTeam" ng-hide="team">
+        <div class="container_12 inactive" style="margin-top:10px !important">
+            <div class="grid_3 placeholder">
+                <span>Code</span>
+            </div>
+            <div class="grid_9">
+                <input type="text" ng-model="data.code">
+            </div>
+        </div>
+        <div class="container_12 inactive no-margin">
+            <div class="grid_3 placeholder">
+                <span>Password</span>
+            </div>
+            <div class="grid_9">
+                <input type="password" ng-model="data.password">
+            </div>
+        </div>
+        <div class="container_12">
+            <div class="grid_12" ng-click="login(user)">
+                <button ng-click="search(data)">Find Team</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="team_card_wrapper" ng-show="team">
+        <div class="team_card">
+            <div id="info">
+                <img ng-src="{{url}}/team/{{team._id}}/img">
+                <span id="name">{{team.name}}</span>
+                <span id="code">{{team.code}}</span>
+                <span id="description">{{team.description}}</span>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{team.manager.first_name + ' ' + team.manager.surname}}</th>
+                            <th>{{team.users.length}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Manager</td>
+                            <td>Users</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div ng-show="allreadyIn" class="allready">Joined</div>
+
+        </div>
+
+        <button ng-hide="allreadyIn" class="btn-join" ng-click="join()">Join</button>
+        
+    </div>
+
+</div>

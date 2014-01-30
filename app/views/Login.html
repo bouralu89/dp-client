@@ -1,0 +1,9 @@
+<div class="content-no-tab row scroll-y login" style="top:0 !important">
+	<form ng-submit="login()" class="login-form">
+		<h2>Welcome</h2>
+		<input type="text" placeholder="Username" ng-model="user.username">
+		<input type="password" placeholder="Password" ng-model="user.password">
+		<button type="submit">Sign in</button>
+		<button type="button" class="signup" ng-click="go_to('SignUp')">Sign up</button>
+	</form>
+</div>

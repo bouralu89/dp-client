@@ -1,0 +1,29 @@
+<div class="msg">
+    <div class="back" ng-click="hideMessage()">
+        <i class="fa fa-times fa-2x icon-white"></i>
+    </div>
+    <div class="head">
+        <img ng-src="{{url}}/team/{{message.team._id}}/img" alt="" class="logo" border="0">
+        <div class="info">
+            <span id="name" ng-bind="message.user.first_name + ' ' + message.user.surname"></span>
+            <span id="team" ng-bind="message.team.name + '-' + (message.date | fromNow)"></span>
+
+        </div>
+    </div>
+    <div id="text" ng-bind="message.text"></div>
+    <form ng-submit="postComment(comment)">
+        <input type="text" ng-model="comment.text" placeholder="Add comment..."></input>
+    </form>
+    <div class="comments" bindonce ng-repeat="c in message.comments">
+        <div class="comment">
+            <div class="logo">
+                <img bo-src="url + '/user/' + c.user._id + '/img'" alt="" border="0">
+            </div>
+            <div class="body">
+                <div class="name" bo-text="c.user.first_name + ' ' + c.user.surname"></div>
+                <div class="date" bo-text="c.date | fromNow"></div>
+                <div class="text" bo-text="c.text"></div>
+            </div>
+        </div>
+    </div>
+</div>

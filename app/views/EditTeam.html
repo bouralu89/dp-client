@@ -1,0 +1,57 @@
+<div class="content-no-tab row editor scroll-y">
+    <div class="container_12 line" ng-switch on="device">
+        <div class="grid_2">
+            <img id="teamImage" ng-src="{{logoUrl}}" alt="" class="logo">
+        </div>
+
+       <div ng-switch-when="mobile" class="grid_10" ng-click="editLogo()">
+            <span>Edit logo</span>
+        </div>
+        <div ng-switch-when="desktop" class="grid_10">
+            <span>Edit logo</span>
+            <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" class="upload"></input>
+        </div>
+    </div>
+    <a href="" class="container_12 line" ng-class="{line_selected: changePass == true}" ng-click="changePass = !changePass">
+        <div class="grid_2">
+            <i class="fa fa-key fa-2x fa-fw icon-darker"></i>
+        </div>
+        <div class="grid_10">
+            <span>Change password</span>
+        </div>
+    </a>
+    <div class="container_12 inactive no-margin" ng-show="changePass">
+        <div class="grid_2 placeholder">
+            <span>NewPass</span>
+        </div>
+        <div class="grid_10">
+            <input type="password" ng-model="newPassword">
+        </div>
+    </div>
+
+    <div class="container_12 inactive">
+        <div class="grid_2 placeholder">
+            <span>Name</span>
+        </div>
+        <div class="grid_10">
+            <input type="text" ng-model="team.name">
+        </div>
+    </div>
+    <div class="container_12 inactive no-margin">
+        <div class="grid_2 placeholder">
+            <span>Code</span>
+        </div>
+        <div class="grid_10">
+            <input type="text" ng-model="team.code">
+        </div>
+    </div>
+    <div class="container_12 inactive no-margin">
+        <div class="grid_2 placeholder">
+            <span>Desc</span>
+        </div>
+        <div class="grid_10">
+            <textarea type="text" ng-model="team.description">
+        </div>
+    </div>
+
+</div>

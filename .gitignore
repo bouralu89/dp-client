@@ -1,0 +1,12 @@
+node_modules
+dist
+test
+.tmp
+.sass-cache
+.jshintrc
+.travis.yml
+karma-e2e.conf.js
+karma.conf.js
+app/bower_components
+app/server.js
+cordova

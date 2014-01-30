@@ -1,0 +1,65 @@
+<div class="content-no-tab row editor scroll-y">
+    <div class="container_12 line" ng-switch on="device">
+        <div class="grid_2">
+            <img id="userImage" ng-src="{{logoUrl}}" alt="" class="logo">
+        </div>
+
+       <div ng-switch-when="mobile" class="grid_10" ng-click="editLogo()">
+            <span>Edit avatar</span>
+        </div>
+        <div ng-switch-when="desktop" class="grid_10">
+            <span>Edit avatar</span>
+            <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" class="upload"></input>
+        </div>
+    </div>
+    <a href="" class="container_12 line" ng-class="{line_selected: changePass == true}" ng-click="changePass = !changePass">
+        <div class="grid_2">
+            <i class="fa fa-key fa-2x fa-fw icon-darker"></i>
+        </div>
+        <div class="grid_10">
+            <span>Change password</span>
+        </div>
+    </a>
+    <div class="container_12 inactive no-margin" ng-show="changePass">
+        <div class="grid_2 placeholder">
+            <span>New Pass</span>
+        </div>
+        <div class="grid_10">
+            <input type="password" ng-model="newPassword">
+        </div>
+    </div>
+
+    <div class="container_12 inactive">
+        <div class="grid_2 placeholder">
+            <span>First Name</span>
+        </div>
+        <div class="grid_10">
+            <input type="text" ng-model="user.first_name">
+        </div>
+    </div>
+    <div class="container_12 inactive no-margin">
+        <div class="grid_2 placeholder">
+            <span>Last Name</span>
+        </div>
+        <div class="grid_10">
+            <input type="text" ng-model="user.surname">
+        </div>
+    </div>
+    <div class="container_12 inactive no-margin">
+        <div class="grid_2 placeholder">
+            <span>Phone</span>
+        </div>
+        <div class="grid_10">
+            <input type="text" ng-model="user.phoneNumber">
+        </div>
+    </div>
+    <div class="container_12 inactive no-margin">
+        <div class="grid_2 placeholder">
+            <span>Email</span>
+        </div>
+        <div class="grid_10">
+            <input type="text" ng-model="user.email">
+        </div>
+    </div>
+
+</div>

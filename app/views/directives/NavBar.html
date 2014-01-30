@@ -1,0 +1,50 @@
+<div class="header row">
+    <span class="title" ng-bind="title">Loading...</span>
+    <span class="title" ng-if="title == null"><i class="fa fa-spinner fa-title fa-spin icon-white"></i></span>
+    
+    <a href="" ng-click="broadcast('move')" class="nav-icon-left" ng-if="buttons.move">
+        <i class="fa fa-bars fa-2x icon-white"></i>
+    </a>
+    
+    <a href="" ng-click="go_to('NewMessage')" class="nav-icon-right" ng-if="buttons.newMsg">
+        <i class="fa fa-comment-o fa-2x icon-white"></i>
+    </a>
+    
+    <a href="" ng-click="broadcast('refresh')" class="nav-icon-right" ng-if="buttons.refresh">
+        <i class="fa fa-refresh fa-2x icon-white"></i>
+    </a>
+    
+    <a href="" ng-click="go_back()" class="nav-icon-left" ng-if="buttons.back">
+        <i class="fa fa-chevron-left fa-2x icon-white"></i>
+    </a>
+
+    <a href="" ng-click="broadcast('back')" class="nav-icon-left" ng-if="buttons.backIn">
+        <i class="fa fa-chevron-left fa-2x icon-white"></i>
+    </a>
+    
+    <a href="" ng-click="broadcast('menu')" class="nav-icon-right" ng-if="buttons.menu">
+        <i class="fa fa-ellipsis-h fa-2x icon-white"></i>
+    </a>
+
+    <button type="button" class="nav-btn-right" ng-click="broadcast('save')" ng-if="buttons.save">Save</button>
+
+    <button type="button" class="nav-btn-right" ng-click="broadcast('new')" ng-if="buttons.new">New</button>
+
+    <button type="button" class="nav-btn-right" ng-click="broadcast('send')" ng-if="buttons.send">Send</button>
+
+    <button type="button" class="nav-btn-right" ng-click="broadcast('done')" ng-if="buttons.done">Done</button>
+
+    <a href="" ng-click="broadcast('delete')" class="nav-icon-right" ng-if="buttons.delete">
+        <i class="fa fa-trash-o fa-2x fa-fw icon-white"></i>
+    </a>
+
+    <a href="" ng-click="broadcast('addToContacts')" class="nav-icon-right" ng-if="buttons.contacts">
+        <i class="fa fa-book fa-2x fa-fw icon-white"></i>
+    </a>
+
+    <a href="" ng-click="broadcast('addToCalendar')" class="nav-icon-right" ng-if="buttons.calendar">
+        <i class="fa fa-calendar fa-2x icon-white"></i>
+    </a>
+
+    
+</div>

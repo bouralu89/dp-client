@@ -1,0 +1,14 @@
+<div class="content-no-tab row scroll-y">
+
+    <form class="editor" name="newMessage">
+        <div class="container_12 inactive no-margin select">
+            <select class="select_box" ng-model="msg.team" required>
+                <option value="" disabled selected>Select team...</option>
+                <option ng-repeat="team in teams" value="{{team._id}}" placeholder="Select team...">{{team.name}}</option>
+            </select>
+        </div>
+        <div class="container_12 inactive no-margin">
+            <textarea rows="10" placeholder="Write your message..." ng-model="msg.text" style="height:100%;" required></textarea>
+        </div>
+    </form>
+</div>

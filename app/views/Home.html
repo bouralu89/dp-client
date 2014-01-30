@@ -1,0 +1,64 @@
+<div class="tab row">
+    <ul class="nav">
+        <li ng-repeat="view in views" ng-class="{active : isSelected(view)}" ng-click="setView(view)">
+            <span>{{view}}</span>
+        </li>
+    </ul>
+</div>
+<div id="view" class="content row scroll-y" ng-switch on="view">
+
+    <!-- News View -->
+    <div ng-switch-when="News" class="sub-page">
+        <div class="nodata" ng-if="messages.length == 0">
+            No news
+        </div>
+        <div bindonce="msg" ng-repeat="msg in messages" class="message" ng-click="openMessage(messages[$index])">
+            <div class="head">
+                <img bo-src="url + '/team/' + msg.team._id + '/img'" alt="" class="logo" border="0">
+                <div class="info">
+                    <span id="name" bo-text="msg.user.first_name + ' ' + msg.user.surname"></span>
+                    <span id="team" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
+
+                </div>
+            </div>
+            <div id="text" bo-text="msg.text"></div>
+        </div>
+        <div ng-switch on="loading" ng-click="loadMore()" ng-if="messages.length >= 5 && allMessages != true">
+            <div ng-switch-when="false" class="pageloader">
+                Load more...
+            </div>
+            <div ng-switch-when="true" class="pageloader">
+                <i class="fa fa-spinner fa-title fa-spin icon-white"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teams View -->
+    <div ng-switch-when="Teams" class="sub-page">
+        <div class="nodata" ng-if="teams.length == 0">
+            No teams
+        </div>
+        <a bindonce ng-repeat="team in teams" href="" class="list" ng-click="go_to('/TeamDetail/' + team._id)">
+            <img bo-src="url + '/team/' + team._id + '/img'" alt="" class="logo">
+            <div class="info">
+                <span id="title" bo-text="team.name"></span>
+                <span id="subtitle" bo-text="team.code"></span>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Tasks View -->
+    <div ng-switch-when="Tasks" class="sub-page">
+        <div class="nodata" ng-if="tasks.length == 0">
+            No tasks
+        </div>
+        <a href="" bindonce ng-repeat="task in tasks" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+            <div class="info">
+                <span id="title" bo-text="task.title"></span>
+                <span id="subtitle" bo-text="'Team:' + task.team.name"></span>
+                <span id="subtitle" bo-text="'Deadline:' + (task.endDate | format:'DD.MM.YYYY HH:mm')"></span>
+            </div>
+        </a>
+    </div>
+</div>

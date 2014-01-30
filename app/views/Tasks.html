@@ -1,0 +1,11 @@
+<div class="content-no-tab row scroll-y">
+    <div class="nodata" ng-if="tasks.length == 0">
+        No tasks
+    </div>
+    <a href="" bindonce ng-repeat="task in tasks" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+        <div class="info">
+            <span id="title" bo-text="task.title">{{task.title}}</span>
+            <span id="subtitle" bo-text="'Deadline:' + (task.endDate | format:'DD.MM.YYYY HH:mm')"></span>
+        </div>
+    </a>
+</div>
