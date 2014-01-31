@@ -12,7 +12,7 @@ angular.module('HybridApp', [
     'ngRoute',
     'ngAnimate',
     'restangular',
-    'angular-gestures',
+    'swipe',
     'pasvaz.bindonce'
 ])
     .config(function($routeProvider) {
@@ -110,7 +110,7 @@ angular.module('HybridApp', [
                 redirectTo: '/Login'
             });
     })
-    .run(function(Restangular, server, $http, $location, localStorageService) {
+    .run(function(Restangular, server, $http, $location, localStorageService, Userservice, Auth) {
         Restangular.setBaseUrl(server);
         Restangular.setRestangularFields({
             id: "_id"
@@ -125,6 +125,12 @@ angular.module('HybridApp', [
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
             Restangular.setDefaultHeaders({
                 'Authorization': 'Basic ' + authdata
+            });
+            Userservice.checkLogin().then(function(){
+                $location.url('Home');
+            }, function(){
+                Auth.clearCredentials();
+                $location.url('Login');
             });
         } else {
             $location.url('Login');

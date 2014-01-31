@@ -14,7 +14,7 @@
     "angular-bindonce": "~0.2.2",
     "font-awesome": "~4.0.3",
     "fastclick": "~0.6.11",
-    "angular-gestures": "~0.2.1"
+    "angular-swipe": "https://github.com/marmorkuchen-net/angular-swipe.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",

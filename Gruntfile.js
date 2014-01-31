@@ -192,7 +192,6 @@ module.exports = function(grunt) {
                             //'*.{ico,png,txt}',
                             //'.htaccess',
                             'bower_components/**/*.min.{js,css}',
-                            'bower_components/**/*bindonce.js',
                             'bower_components/**/*fastclick.js',
                             'bower_components/**/*fontawesome-webfont.ttf',
                             '!bower_components/font-awesome/src/**/*',
