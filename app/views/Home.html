@@ -8,7 +8,7 @@
 <div id="view" class="content row scroll-y" ng-switch on="view">
 
     <!-- News View -->
-    <div ng-switch-when="News" class="sub-page">
+    <div ng-switch-when="News">
         <div class="nodata" ng-if="messages.length == 0">
             No news
         </div>
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Teams View -->
-    <div ng-switch-when="Teams" class="sub-page">
+    <div ng-switch-when="Teams">
         <div class="nodata" ng-if="teams.length == 0">
             No teams
         </div>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Tasks View -->
-    <div ng-switch-when="Tasks" class="sub-page">
+    <div ng-switch-when="Tasks">
         <div class="nodata" ng-if="tasks.length == 0">
             No tasks
         </div>

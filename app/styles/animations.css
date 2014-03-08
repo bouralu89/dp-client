@@ -139,36 +139,36 @@
     -webkit-transform: scale(0.75);
 }*/
 .tm_wrapper.ng-enter {
-    -webkit-animation: 0.5s slideInFade ease;
+    -webkit-animation: 0.5s slideInFade ease-out;
 }
 .tm_wrapper.ng-leave {
-    -webkit-animation: 0.5s slideOutFade ease;
+    -webkit-animation: 0.5s slideOutFade ease-in;
 }
 @-webkit-keyframes slideInFade {
     from {
-        opacity:0;
-        -webkit-transform: scale(0.75);
+        //opacity:0;
+        -webkit-transform: translate3d(0, -100%, 0);
     }
     60% {
-        opacity:1;
-        -webkit-transform: scale(1);
+        //opacity:1;
+        -webkit-transform: translate3d(0, 0, 0);
     }
     100% {
-        opacity:1;
-        -webkit-transform: scale(1);
+        //opacity:1;
+        -webkit-transform: translate3d(0, 0, 0);
     }
 }
 @-webkit-keyframes slideOutFade {
     from {
-        opacity:1;
-        -webkit-transform: scale(1);
+        //opacity:1;
+        -webkit-transform: translate3d(0, 0, 0);
     }
     60% {
-        opacity:0;
-        -webkit-transform: scale(0.75);
+        //opacity:0;
+        -webkit-transform: translate3d(0, -100%, 0);
     }
     100% {
-        opacity:0;
-        -webkit-transform: scale(0.75);
+        //opacity:0;
+        -webkit-transform: translate3d(0, -100%, 0);
     }
 }
