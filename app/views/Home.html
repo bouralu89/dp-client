@@ -1,7 +1,7 @@
 <div class="tab row">
     <ul class="nav">
-        <li ng-repeat="view in views" ng-class="{active : isSelected(view)}" ng-click="setView(view)">
-            <span>{{view}}</span>
+        <li ng-repeat="view in views" ng-class="{active : isSelected(view.view)}" ng-click="setView(view.view)">
+            <span><i class="fa fa-{{view.icon}}"></i>{{view.view}}</span>
         </li>
     </ul>
 </div>
@@ -14,7 +14,7 @@
         </div>
         <div bindonce="msg" ng-repeat="msg in messages" class="message" ng-click="openMessage(messages[$index])">
             <div class="head">
-                <img bo-src="url + '/team/' + msg.team._id + '/img'" alt="" class="logo" border="0">
+                <img bo-src="url + '/team/' + msg.team._id + '/img'" alt="" border="0">
                 <div class="info">
                     <span id="name" bo-text="msg.user.first_name + ' ' + msg.user.surname"></span>
                     <span id="team" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
@@ -22,6 +22,7 @@
                 </div>
             </div>
             <div id="text" bo-text="msg.text"></div>
+            <div class="footer"><span><i class="fa fa-comments-o"></i> Comments {{msg.commentcount}}</span></div>
         </div>
         <div ng-switch on="loading" ng-click="loadMore()" ng-if="messages.length >= 5 && allMessages != true">
             <div ng-switch-when="false" class="pageloader">

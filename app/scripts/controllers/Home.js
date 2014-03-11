@@ -28,7 +28,17 @@ angular.module('HybridApp')
         }
 
         $scope.view = localStorageService.get('homeView') || 'News';
-        $scope.views = ['News', 'Teams', 'Tasks'];
+        $scope.views = [{
+                'view': 'News',
+                'icon': 'comments'
+            }, {
+                'view': 'Teams',
+                'icon': 'group'
+            }, {
+                'view': 'Tasks',
+                'icon': 'clipboard'
+            }
+        ];
         $scope.loading = false;
         $scope.allMessages = false;
         //$scope.showDetail = false;
@@ -40,22 +50,35 @@ angular.module('HybridApp')
 
             switch (view) {
                 case 'Teams':
-                    Teamservice.getTeams(true).then(function(teams) {
-                        setTitle();
-                        $scope.teams = teams;
-                    });
+                    if ($scope.teams) {
+                        break
+                    } else {
+                        Teamservice.getTeams(true).then(function(teams) {
+                            setTitle();
+                            $scope.teams = teams;
+                        });
+                    }
                     break
                 case 'News':
-                    Messageservice.getAll(new Date().toISOString(), true).then(function(msgs) {
-                        setTitle();
-                        $scope.messages = msgs;
-                    });
+                    if ($scope.messages) {
+                        break
+                    } else {
+                        Messageservice.getAll(new Date().toISOString(), true).then(function(msgs) {
+                            setTitle();
+                            console.log(msgs);
+                            $scope.messages = msgs;
+                        });
+                    }
                     break
                 case 'Tasks':
-                    Taskservice.getCurrentByUser(true).then(function(tasks) {
-                        setTitle();
-                        $scope.tasks = tasks;
-                    });
+                    if ($scope.tasks) {
+                        break
+                    } else {
+                        Taskservice.getCurrentByUser(true).then(function(tasks) {
+                            setTitle();
+                            $scope.tasks = tasks;
+                        });
+                    }
                     break
             }
 
@@ -114,7 +137,7 @@ angular.module('HybridApp')
                     _.forEach(msgs, function(msg) {
                         $scope.messages.push(msg);
                     });
-                } else if (msgs.length < 5 && msgs.length > 0) {
+                } else if (msgs.length < 5 && msgs.length >= 0) {
                     _.forEach(msgs, function(msg) {
                         $scope.messages.push(msg);
                     });
