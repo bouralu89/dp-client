@@ -1,33 +1,29 @@
 'use strict';
 
 angular.module('HybridApp')
-  .controller('EdituserCtrl', function ($scope, $window, Restangular, $routeParams, server, Teamservice, Contactservice, Notificationservice) {
+    .controller('EdituserCtrl', function(Navbar, $scope, $window, Restangular, $routeParams, server, Teamservice, Contactservice, Notificationservice) {
+        
+        Navbar.init(null, {
+            'back': true,
+            'contacts': true
+        });
+
         var uid = $routeParams.user;
         var tid = $routeParams.team;
 
-        $scope.$emit('navbar', {
-            'title': null,
-            'buttons': {
-                'back': true,
-                'contacts': true
-            }
-        });
-
         Restangular.one('user', uid).get().then(function(user) {
-            $scope.$emit('title', {
-                    'title': user.username
-                });
+            Navbar.setTitle(user.username);
             $scope.user = user;
         }, function(res) {
             Notificationservice.alert('Error while getting user...');
         });
 
-        $scope.removeFromTeam = function(){
-			Teamservice.removeUser(uid, tid).then(function(){
-				$window.history.back();
-			}, function(){
+        $scope.removeFromTeam = function() {
+            Teamservice.removeUser(uid, tid).then(function() {
+                $window.history.back();
+            }, function() {
                 Notificationservice.error('Some error occured.');
-			});
+            });
         };
 
         $scope.addToContacts = function() {

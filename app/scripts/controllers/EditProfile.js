@@ -1,31 +1,24 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('EditprofileCtrl', function($scope, $http, localStorageService, Userservice, Cameraservice, server, Notificationservice) {
+    .controller('EditprofileCtrl', function(Navbar, Auth, $scope, $http, Userservice, Cameraservice, server, Notificationservice) {
+
+        $scope.user = Auth.getIdentity();
+        Navbar.init($scope.user.username, {
+            'move': true,
+            'save': true
+        });
 
         $scope.newPassword = '';
-        $scope.user = localStorageService.get('user');
-
-        $scope.$emit('navbar', {
-            'title': $scope.user.username,
-            'buttons': {
-                'move': true,
-                'save': true
-            }
-        });
 
         $scope.logoUrl = server + '/user/' + $scope.user._id + '/img';
         $scope.changePass = false;
         $scope.device = navigator.camera ? "mobile" : "desktop";
 
-
         // for upload from web browser during development
         $scope.uploadFile = function(files) {
-            $scope.$emit('title', {
-                'title': null
-            });
+            Navbar.showLoader();
             var fd = new FormData();
-            //Take the first selected file
             fd.append("file", files[0]);
             console.log(files[0]);
             $http.post(server + '/user/' + $scope.user._id + '/img', fd, {
@@ -35,21 +28,16 @@ angular.module('HybridApp')
                 },
                 transformRequest: angular.identity
             }).success(function() {
-                 $scope.$emit('title', {
-                    'title': $scope.user.username
-                });
+                Navbar.setTitle($scope.user.username);
                 $scope.logoUrl = server + '/user/' + $scope.user._id + '/img#' + new Date().getTime();
                 Notificationservice.alert("Done");
             }).error(function() {
-                 $scope.$emit('title', {
-                    'title': $scope.user.username
-                });
+                Navbar.setTitle($scope.user.username);
                 Notificationservice.alert("error");
             });
 
         };
 
-        // for upload in hybrid app
         $scope.editLogo = function() {
             Cameraservice.getFileURI().then(function(imageURI) {
 

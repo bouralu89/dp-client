@@ -1,29 +1,24 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('TeamdetailCtrl', function($scope, $timeout, $routeParams, Teamservice, localStorageService) {
+    .controller('TeamdetailCtrl', function(Navbar, $scope, $routeParams, Teamservice, Auth) {
+
+        Navbar.init(null, {
+            'back': true,
+            'menu': true
+        });
 
         var teamId = $scope.teamId = $routeParams.id;
 
-        $scope.$emit('navbar', {
-            'title': null,
-            'buttons': {
-                'back': true,
-                'menu': true
-            }
-        });
-
         $scope.topmenu = false;
-        $scope.user = localStorageService.get('user');
+        $scope.user = Auth.getIdentity();
         $scope.showDetail = false;
 
         Teamservice.getTeam(teamId, true).then(function(team) {
             $scope.team = team;
 
             team.getList('messages').then(function(msgs) {
-                $scope.$emit('title', {
-                    'title': team.code
-                });
+                Navbar.setTitle(team.code);
                 $scope.msgs = msgs;
             });
         });

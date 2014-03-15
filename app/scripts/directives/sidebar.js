@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('HybridApp')
-    .directive('sidebar', function($rootScope) {
+    .directive('sidebar', function() {
         return {
-            templateUrl: 'views/directives/SideBar.html',
+            templateUrl: 'views/directives/Sidebar.html',
             restrict: 'E',
             link: function postLink(scope, element, attrs) {
                 scope.broadcast = function(value) {
-                	console.log(value);
+                    console.log(value);
                     scope.$emit(value);
                 };
             }

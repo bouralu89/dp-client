@@ -1,16 +1,15 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('ManagetasksCtrl', function($scope, $location, $routeParams, Taskservice, Sharedproperties) {
-        var teamId = $routeParams.id;
-        $scope.$emit('navbar', {
-            'title': 'Tasks',
-            'buttons': {
-                'back': true,
-                'new': true
-            }
+    .controller('ManagetasksCtrl', function(Navbar, $scope, $location, $routeParams, Taskservice, Sharedproperties) {
+        
+        Navbar.init('Tasks', {
+            'back': true,
+            'new': true
         });
 
+        var teamId = $routeParams.id;
+        
         $scope.$on('new', function() {
             $location.url('NewTask/' + teamId);
         });

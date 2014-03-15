@@ -3,7 +3,7 @@
 angular.module('HybridApp')
     .directive('navbar', function() {
         return {
-            templateUrl: 'views/directives/NavBar.html',
+            templateUrl: 'views/directives/Navbar.html',
             restrict: 'E',
             link: function postLink(scope, element, attrs) {
                 scope.buttons = {

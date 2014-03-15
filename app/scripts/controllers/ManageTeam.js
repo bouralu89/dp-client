@@ -1,21 +1,18 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('ManageteamCtrl', function($scope, Auth, Teamservice, $routeParams, Sharedproperties, $location) {
-        
-        $scope.teamID = $routeParams.id;
+    .controller('ManageteamCtrl', function(Navbar, $scope, Teamservice, $routeParams, Sharedproperties, $location) {
 
-        $scope.$emit('navbar', {
-            'title': null,
-            'buttons': {
-                'back': true
-            }
+        Navbar.init(null, {
+            'back': true
         });
 
+        $scope.teamID = $routeParams.id;
+
         Teamservice.getTeam($scope.teamID).then(function(team) {
-            $scope.$emit('title', {
-                    'title': team.code
-                });
+
+            Navbar.setTitle(team.code);
+
             $scope.team = team;
             Sharedproperties.setProperty(team);
         }, function() {

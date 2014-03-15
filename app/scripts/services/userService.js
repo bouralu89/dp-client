@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('HybridApp')
-    .service('Userservice', function Userservice($q, Rest, localStorageService, Auth) {
+    .service('Userservice', function Userservice($q, Rest, Auth) {
         return {
             updateLogo: function(id, data) {
                 var deferred = $q.defer();
@@ -22,7 +22,7 @@ angular.module('HybridApp')
 
                         Auth.setCredentials(user.username, user.password);
                     };
-                    localStorageService.add('user', user);
+                    Auth.storeIdentity(user);
                     deferred.resolve();
                 }, function() {
                     deferred.reject();
@@ -35,7 +35,8 @@ angular.module('HybridApp')
 
                 Rest(false).all('login').post(user).then(function(res) {
                     Auth.setCredentials(user.username, user.password);
-                    localStorageService.add('user', res);
+                    Auth.setAuthHeader();
+                    Auth.storeIdentity(res);
                     deferred.resolve();
                 }, function(res) {
                 	deferred.reject(res.data.error);
@@ -47,7 +48,7 @@ angular.module('HybridApp')
             	var deferred = $q.defer();
 
                 Rest(false).all('login').getList().then(function(res) {
-                    localStorageService.add('user', res);
+                    Auth.storeIdentity(res);
                     deferred.resolve();
                 }, function() {
                 	deferred.reject();

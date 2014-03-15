@@ -1,20 +1,19 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('NewtaskCtrl', function($scope, $routeParams, localStorageService, Taskservice, Notificationservice) {
+    .controller('NewtaskCtrl', function(Navbar, $scope, $routeParams, Auth, Taskservice, Notificationservice) {
+
+        Navbar.init('New task', {
+            'back': true,
+            'done': true
+        });
 
         $scope.task = {};
-        $scope.$emit('navbar', {
-            'title': 'New task',
-            'buttons': {
-                'back': true,
-                'done': true
-            }
-        });
+
         $scope.$on('done', function() {
             var task = $scope.task;
             task.team = $routeParams.id;
-            task.creator = localStorageService.get('user')._id;
+            task.creator = Auth.getIdentity()._id;
             var date = task.endDate;
             task.endDate = moment(task.endDate, "DD.MM.YYYY hh:mm");
             if (task.endDate < new Date) {

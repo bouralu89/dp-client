@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('HybridApp')
-    .service('Teamservice', function Teamservice($q, Rest, localStorageService) {
+    .service('Teamservice', function Teamservice($q, Rest, Auth) {
 
-        var userid = localStorageService.get('user')._id;
+        var userid = Auth.getIdentity()._id;
 
         return {
             removeUser: function(user, team) {

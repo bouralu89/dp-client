@@ -1,14 +1,12 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('TeamselectCtrl', function($scope, Teamservice) {
-
-        $scope.$emit('navbar', {
-            'title': 'Select team',
-            'buttons': {
-                'move': true
-            }
+    .controller('TeamselectCtrl', function(Navbar, $scope, Teamservice) {
+        
+        Navbar.init('Select team', {
+            'move': true
         });
+
         Teamservice.getMyTeams().then(function(teams) {
             $scope.teams = teams;
         });

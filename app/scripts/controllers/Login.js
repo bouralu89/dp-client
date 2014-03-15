@@ -1,9 +1,8 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('LoginCtrl', function($rootScope, $scope, $location, localStorageService, Restangular, Userservice, Notificationservice) {
+    .controller('LoginCtrl', function($scope, $location, Userservice, Notificationservice) {
 
-        $rootScope.navbar = false;
         $scope.user = {};
 
         $scope.login = function() {
@@ -17,7 +16,6 @@ angular.module('HybridApp')
             var hash = new Hashes.SHA1().hex(user.password);
             user.password = hash;
             Userservice.login(user).then(function() {
-                $rootScope.navbar = true;
                 $location.url('Home');
             }, function(err) {
                 if (err == undefined) {

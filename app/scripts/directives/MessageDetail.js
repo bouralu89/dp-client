@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('HybridApp')
-    .directive('messagedetail', function($rootScope, server, Rest, localStorageService) {
+    .directive('messagedetail', function(server, Rest, Auth) {
         return {
             templateUrl: 'views/directives/MessageDetail.html',
             restrict: 'E',
@@ -9,7 +9,7 @@ angular.module('HybridApp')
                 message: '=msg'
             },
             link: function postLink(scope, element, attrs) {
-                var user = localStorageService.get('user');
+                var user = Auth.getIdentity();
 
                 scope.url = server;
 
@@ -18,7 +18,7 @@ angular.module('HybridApp')
                 });
 
                 scope.hideMessage = function() {
-                    $rootScope.showMsgDetail = false;
+                    scope.$parent.closeMessage();
                 };
 
                 scope.postComment = function(comment) {

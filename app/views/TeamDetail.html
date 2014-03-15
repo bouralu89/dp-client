@@ -40,9 +40,9 @@
     <div class="nodata" ng-if="msgs.length == 0">
             No messages
         </div>
-        <div bindonce ng-repeat="msg in msgs" class="message" ng-click="openMessage(msgs[$index])">
+        <div bindonce="msg" ng-repeat="msg in msgs" class="message" ng-click="openMessage(msgs[$index])">
             <div class="head">
-                <img bo-src="url + '/user/' + msg.user._id + '/img'" alt="" class="logo" border="0">
+                <img bo-src="url + '/user/' + msg.user._id + '/img'" alt="" border="0">
                 <div class="info">
                     <span id="name" bo-text="msg.user.first_name + ' ' + msg.user.surname"></span>
                     <span id="team" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
@@ -50,6 +50,7 @@
                 </div>
             </div>
             <div id="text" bo-text="msg.text"></div>
+            <div class="footer"><span><i class="fa fa-comments-o"></i> Comments {{msg.commentcount}}</span></div>
         </div>
     </div>
 

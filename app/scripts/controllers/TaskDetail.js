@@ -1,20 +1,17 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('TaskdetailCtrl', function($scope, $routeParams, Taskservice, $timeout, CordovaService, Notificationservice) {
-        var taskID = $routeParams.id;
-        $scope.$emit('navbar', {
-            'title': null,
-            'buttons': {
-                'back': true,
-                'calendar': true
-            }
+    .controller('TaskdetailCtrl', function(Navbar, $scope, $routeParams, Taskservice, CordovaService, Notificationservice) {
+
+        Navbar.init(null, {
+            'back': true,
+            'calendar': true
         });
 
+        var taskID = $routeParams.id;
+
         Taskservice.get(taskID, true).then(function(task) {
-            $scope.$emit('title', {
-                    'title': moment(new Date(task.endDate)).fromNow(true)
-                });
+            Navbar.setTitle(moment(new Date(task.endDate)).fromNow(true));
             $scope.task = task;
         }, function() {
             Notificationservice.alert('Error while getting task...');

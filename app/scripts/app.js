@@ -99,7 +99,7 @@ angular.module('HybridApp', [
                 controller: 'TeamlistCtrl'
             })
             .when('/edituser/:team/:user', {
-                templateUrl: 'views/edituser.html',
+                templateUrl: 'views/EditUser.html',
                 controller: 'EdituserCtrl'
             })
             .when('/EditProfile', {
@@ -110,7 +110,7 @@ angular.module('HybridApp', [
                 redirectTo: '/Login'
             });
     })
-    .run(function(Restangular, server, $http, $location, localStorageService, Userservice, Auth) {
+    .run(function($rootScope, Restangular, server, $http, $location, localStorageService, Userservice, Auth) {
         Restangular.setBaseUrl(server);
         Restangular.setRestangularFields({
             id: "_id"
@@ -119,21 +119,38 @@ angular.module('HybridApp', [
             cache: true
         });
 
-        var authdata = localStorageService.get('authdata');
-
-        if (authdata) {
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
-            Restangular.setDefaultHeaders({
-                'Authorization': 'Basic ' + authdata
-            });
+        if (Auth.isAuthenticated()) {
+            Auth.setAuthHeader();
             Userservice.checkLogin().then(function(){
                 $location.url('Home');
             }, function(){
                 Auth.clearCredentials();
+                $rootScope.navbar = false;
                 $location.url('Login');
             });
         } else {
+            $rootScope.navbar = false;
             $location.url('Login');
         };
+
+        $rootScope.$on('$locationChangeStart', function(next, current) {
+            var path = $location.url();
+            if (path === "/SignUp" || path === "/Login") {
+                $rootScope.navbar = false;
+            } else {
+                $rootScope.navbar = true;
+            };
+            if (!Auth.isAuthenticated()) {
+                if (path === "/SignUp" || path === "/Login") {
+                    return
+                } else {
+                    $location.url('Login');
+                };
+            } else {
+                if (path === "/SignUp" || path === "/Login") {
+                    $location.url('Home');
+                }
+            };
+        });
 
     });

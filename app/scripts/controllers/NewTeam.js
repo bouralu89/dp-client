@@ -1,13 +1,10 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('NewteamCtrl', function($scope, localStorageService, Teamservice, Notificationservice) {
+    .controller('NewteamCtrl', function(Navbar, $scope, Auth, Teamservice, Notificationservice) {
 
-        $scope.$emit('navbar', {
-            'title': 'New team',
-            'buttons': {
-                'move': true
-            }
+        Navbar.init('New team', {
+            'move': true
         });
 
         $scope.create = function(team) {
@@ -20,7 +17,7 @@ angular.module('HybridApp')
             var hash = new Hashes.SHA1().hex(team.password).toString();
 
             team.password = hash;
-            team.manager = localStorageService.get('user')._id;
+            team.manager = Auth.getIdentity()._id;
 
 
             Teamservice.create(team).then(function() {

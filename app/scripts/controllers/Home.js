@@ -1,47 +1,38 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('HomeCtrl', function(Restangular, $scope, $rootScope, $location, localStorageService, Taskservice, Teamservice, Messageservice) {
+    .controller('HomeCtrl', function(Restangular, $scope, Auth, localStorageService, Navbar, Taskservice, Teamservice, Messageservice) {
 
-        var id = localStorageService.get('user')._id;
-        $scope.user = localStorageService.get('user');
-
-        $scope.$emit('navbar', {
-            'title': null,
-            'buttons': {
-                'move': true,
-                'refresh': true,
-                'newMsg': true
-            }
+        Navbar.init(null, {
+            'move': true,
+            'refresh': true,
+            'newMsg': true
         });
+        
+        var user = Auth.getIdentity();
+        var id = user._id;
 
         function setTitle() {
-            $scope.$emit('title', {
-                'title': $scope.user.first_name + ' ' + $scope.user.surname
-            });
+            Navbar.setTitle(user.first_name + ' ' + user.surname);
         }
 
         function removeTitle() {
-            $scope.$emit('title', {
-                'title': null
-            });
+            Navbar.showLoader();
         }
 
         $scope.view = localStorageService.get('homeView') || 'News';
         $scope.views = [{
-                'view': 'News',
-                'icon': 'comments'
-            }, {
-                'view': 'Teams',
-                'icon': 'group'
-            }, {
-                'view': 'Tasks',
-                'icon': 'clipboard'
-            }
-        ];
+            'view': 'News',
+            'icon': 'comments'
+        }, {
+            'view': 'Teams',
+            'icon': 'group'
+        }, {
+            'view': 'Tasks',
+            'icon': 'clipboard'
+        }];
         $scope.loading = false;
         $scope.allMessages = false;
-        //$scope.showDetail = false;
 
         $scope.setView = function(view) {
 
@@ -120,10 +111,6 @@ angular.module('HybridApp')
 
         $scope.isSelected = function(view) {
             return $scope.view === view;
-        };
-
-        $scope.teamDetail = function(id) {
-            $location.url('/team/' + id);
         };
 
         $scope.loadMore = function() {

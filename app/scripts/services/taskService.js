@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('HybridApp')
-    .service('Taskservice', function Taskservice($q, Rest, localStorageService) {
+    .service('Taskservice', function Taskservice($q, Rest, Auth) {
 
-        var userid = localStorageService.get('user')._id;
+        var userid = Auth.getIdentity()._id;
 
         return {
             createTask: function(task) {

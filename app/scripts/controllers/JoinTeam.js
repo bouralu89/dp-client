@@ -1,28 +1,21 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('JointeamCtrl', function($scope, localStorageService, Restangular, Notificationservice) {
+    .controller('JointeamCtrl', function(Navbar, $scope, Auth, Restangular, Notificationservice) {
 
-        var user_id = localStorageService.get('user')._id;
-        $scope.$emit('navbar', {
-            'title': 'Join team',
-            'buttons': {
-                'move': true
-            }
+        Navbar.init('Join team', {
+            'move': true
         });
 
+        var user_id = Auth.getIdentity()._id;
+
         $scope.search = function(data) {
-            $scope.$emit('title', {
-                'title': null
-            });
+            Navbar.showLoader();
             var hash = new Hashes.SHA1().hex(data.password).toString();
             data.password = hash;
             Restangular.one('team').post('search', data).then(function(team) {
-                $scope.$emit('navbar', {
-                    'title': team.code,
-                    'buttons': {
-                        'backIn': true
-                    }
+                Navbar.init(team.code, {
+                    'backIn': true
                 });
                 $scope.team = team;
                 if (team.manager._id == user_id || _.contains(team.users, user_id)) {
@@ -55,11 +48,8 @@ angular.module('HybridApp')
             $scope.data.password = undefined;
             $scope.team = undefined;
             $scope.allreadyIn = false;
-            $scope.$emit('navbar', {
-                'title': 'Join team',
-                'buttons': {
-                    'move': true
-                }
+            Navbar.init('Join team', {
+                'move': true
             });
         });
 

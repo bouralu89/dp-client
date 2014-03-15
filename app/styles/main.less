@@ -96,10 +96,14 @@ input, button, textarea {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
+#navbar {
+    height: 2.8125em;
+    background: @green;
+    overflow: hidden;
+}
 .header.row {
     height: 2.8125em;
     background: @green;
-    //border-bottom: 0.1875em solid #2E8B57;
     z-index: 1010;
     text-align: center;
     .title {
@@ -151,10 +155,10 @@ input, button, textarea {
     }
 }
 .header.signup {
-    background: #f6f7f6;
+    background: @background;
     .title {
         font-family: oleo;
-        color: #3CB371;
+        color: @green;
         font-size: 1.375em;
         /* 22/16 */
     }
@@ -247,6 +251,7 @@ input, button, textarea {
             background-color: #303030 !important;
             /* 3/16 */
             width: 80%;
+            height: 2.8125em;
         }
         .side-menu {
             overflow: hidden;
@@ -359,7 +364,8 @@ input, button, textarea {
         /* 20/16 */
         #title {
             font-size: 12pt;
-            padding-top: 0.125em;
+            padding-top: 0.1875em;
+            padding-bottom: 0.125em;
             /* 2/16 */
             padding-right: 0.625em;
             /* 10/16 */
@@ -387,13 +393,10 @@ input, button, textarea {
     content:"\f054";
     color: #aaa;
     font-size: 1.125em;
-    /* 18/16 */
     position: absolute;
     font-family: FontAwesome;
-    right: 0.625em;
-    /* 10/16 */
-    margin-top: -1.875em;
-    /* 30/16 */
+    right: .625em;
+    margin-top: -2.25em;
 }
 .list:active {
     background-color: #B9DCFF;
@@ -623,14 +626,14 @@ input, button, textarea {
         padding: 0.625em;
         /* 10/16 */
     }
-    .footer{
+    .footer {
         width: 100%;
         float: left;
         clear: left;
         height: 2em;
         background-color: #F9FAFB;
         border-top: 0.0625em solid #e3e4e5;
-        span{
+        span {
             display: block;
             height: 2em;
             padding: 0.25em 1em;
@@ -688,18 +691,13 @@ input, button, textarea {
             float: left;
             input {
                 display: block;
-                margin: 0.3125em auto;
-                /* 5/16 */
-                border: 0.0625em solid #ddd;
-                /* 1/16 */
-                background: #eee;
-                padding: 0.3125em;
-                /* 5/16 */
-                padding-left: 0.625em;
-                /* 10/16 */
-                border-radius: 0.9375em;
-                /* 15/16 */
-                width: 95%;
+margin: .3125em auto;
+border: .125em solid #ddd;
+background: #eee;
+padding: .5em;
+padding-left: .625em;
+border-radius: .5em;
+width: 95%;
             }
         }
         #text {
@@ -825,8 +823,8 @@ input, button, textarea {
                     width: 100%;
                 }
                 .text {
-                    font-size: 10pt;
-                    width: 100%;
+                    font-size: .875em;
+width: 85%;
                 }
             }
         }
@@ -841,7 +839,7 @@ input, button, textarea {
     background-size: 100% auto;
     .info {
         background-image: -webkit-gradient(linear, left top, left bottom, color-stop(15%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(50, 50, 50, 1)));
-        height: 6.25em;
+        height: 8.25em;
         /* 100/16 */
         span {
             color: white;
@@ -849,11 +847,9 @@ input, button, textarea {
         }
         #name {
             font-size: 1.125em;
-            /* 18/16 */
-            text-align: center;
-            color: #fff;
-            padding-top: 1.75em;
-            /* 28/16 */
+text-align: center;
+color: #fff;
+padding-top: 2.4em;
         }
         #manager {
             font-size: 0.875em;
@@ -886,9 +882,8 @@ input, button, textarea {
 }
 .team-tab {
     height: 2.5em;
-    background: #fff;
+    background: #F9FAFB;
     border-bottom: .0625em solid #ddd;
-
     .item {
         line-height: .875em;
         width: 50%;
@@ -898,18 +893,17 @@ input, button, textarea {
         height: 2em;
         margin: .25em 0;
         padding-top: 0.125em;
-
         span {
             color: #858B99;
             width: 100%;
             display: block;
             text-align: center;
-font-size: 0.8125;
+            font-size: 0.8125;
         }
         .value {
             color: #575c68;
-font-weight: bold;
-font-size: 0.9375em;
+            font-weight: bold;
+            font-size: 0.9375em;
         }
     }
 }
@@ -1050,14 +1044,14 @@ font-size: 0.9375em;
         }
     }
     .task_text {
-        margin: 0em;
-        /* 0/16 */
-        padding: 0.625em;
-        /* 10/16 */
+        padding: .625em;
         font-family: android !important;
         font-size: 12pt;
         background: #fff;
         line-height: 18pt;
+        margin: .5em .5em;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
     }
     /*.notepad {
         padding: 0.125em 0.9375em;
@@ -1251,9 +1245,6 @@ font-size: 0.9375em;
     /* 10/16 */
     font-size: 1em;
 }
-.content-no-tab.login {
-    background: #f6f5f6;
-}
 .login-form {
     width: 80%;
     height: 20em;
@@ -1267,7 +1258,7 @@ font-size: 0.9375em;
         display: block;
         width: 100%;
         text-align: center;
-        color: #3CB371;
+        color: @green;
         font-size: 2.8125em;
         /* 45/16 */
         margin-bottom: 5%;
@@ -1277,7 +1268,7 @@ font-size: 0.9375em;
         padding: 0.625em;
         /* 10/16 */
         font-size: 0.9em;
-        border: 0.0625em solid #ddd;
+        border: 0.125em solid #ddd;
         /* 1/16 */
         width: 100%;
         border-top: 0em solid #ddd;
@@ -1286,7 +1277,7 @@ font-size: 0.9375em;
         /* 0/16 */
     }
     input:first-of-type, .first {
-        border-top: 0.0625em solid #ddd;
+        border-top: 0.125em solid #ddd;
         /* 1/16 */
         border-top-right-radius: $radius;
         border-top-left-radius: $radius;
@@ -1313,7 +1304,7 @@ font-size: 0.9375em;
         outline: none;
         border: none;
         border-radius: $radius;
-        background: #3CB371;
+        background: @green;
         cursor: pointer;
     }
     .signup {
@@ -1436,13 +1427,13 @@ font-size: 0.9375em;
         /* 10/16 */
     }
     button {
-        height: 2.8125em;
+        height: 2.5em;
         /* 45/16 */
         font-size: 1.125em;
         /* 18/16 */
         width: 100%;
         text-align: center;
-        background: #2ecc71;
+        background: @green;
         overflow: hidden;
         display: block;
         text-decoration: none;
@@ -1455,7 +1446,7 @@ font-size: 0.9375em;
         font-family: Roboto-Condensed;
     }
     button:active {
-        background: #249F58;
+        background: @darkgreen;
     }
     textarea {
         height: 6.25em;

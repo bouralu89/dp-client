@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('HybridApp')
-    .service('Messageservice', function Messageservice($q, Rest, localStorageService) {
+    .service('Messageservice', function Messageservice($q, Rest, Auth) {
 
-        var userid = localStorageService.get('user')._id;
+        var userid = Auth.getIdentity()._id;
 
         return {
             send: function(msg) {

@@ -1,16 +1,14 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('EditteamCtrl', function($scope, $http, localStorageService, Teamservice, Cameraservice, Sharedproperties, server, Notificationservice) {
+    .controller('EditteamCtrl', function(Navbar, $scope, $http, Teamservice, Cameraservice, Sharedproperties, server, Notificationservice) {
+
+        Navbar.init('Edit team', {
+            'back': true,
+            'save': true
+        });
 
         $scope.team = Sharedproperties.getProperty();
-        $scope.$emit('navbar', {
-            'title': 'Edit team',
-            'buttons': {
-                'back': true,
-                'save': true
-            }
-        });
 
         $scope.newPassword = '';
 

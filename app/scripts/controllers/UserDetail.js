@@ -1,19 +1,17 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('UserdetailCtrl', function($scope, Restangular, $routeParams, server, Contactservice, Notificationservice) {
-        var id = $routeParams.id;
-        $scope.$emit('navbar', {
-            'title': null,
-            'buttons': {
-                'back': true,
+    .controller('UserdetailCtrl', function(Navbar, $scope, Restangular, $routeParams, server, Contactservice, Notificationservice) {
+        
+        Navbar.init(null, {
+            'back': true,
                 'contacts': true
-            }
         });
+
+        var id = $routeParams.id;
+
         Restangular.one('user', id).get().then(function(user) {
-            $scope.$emit('title', {
-                'title': user.username
-            });
+            Navbar.setTitle(user.username);
             $scope.user = user;
 
         }, function(res) {
