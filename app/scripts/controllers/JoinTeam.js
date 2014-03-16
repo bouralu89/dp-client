@@ -22,6 +22,7 @@ angular.module('HybridApp')
                     $scope.allreadyIn = true;
                 }
             }, function() {
+                Navbar.setTitle('Join team');
                 $scope.data.password = '';
                 Notificationservice.alert('Wrong code or password...');
             });

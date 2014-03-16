@@ -110,7 +110,7 @@ angular.module('HybridApp', [
                 redirectTo: '/Login'
             });
     })
-    .run(function($rootScope, Restangular, server, $http, $location, localStorageService, Userservice, Auth) {
+    .run(function(Navbar, $rootScope, Restangular, server, $location, Userservice, Auth) {
         Restangular.setBaseUrl(server);
         Restangular.setRestangularFields({
             id: "_id"
@@ -122,23 +122,24 @@ angular.module('HybridApp', [
         if (Auth.isAuthenticated()) {
             Auth.setAuthHeader();
             Userservice.checkLogin().then(function(){
+                Navbar.show();
                 $location.url('Home');
             }, function(){
                 Auth.clearCredentials();
-                $rootScope.navbar = false;
+                Navbar.hide();
                 $location.url('Login');
             });
         } else {
-            $rootScope.navbar = false;
+            Navbar.hide();
             $location.url('Login');
         };
 
         $rootScope.$on('$locationChangeStart', function(next, current) {
             var path = $location.url();
             if (path === "/SignUp" || path === "/Login") {
-                $rootScope.navbar = false;
+                Navbar.hide();
             } else {
-                $rootScope.navbar = true;
+                Navbar.show();
             };
             if (!Auth.isAuthenticated()) {
                 if (path === "/SignUp" || path === "/Login") {
