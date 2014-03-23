@@ -184,30 +184,29 @@ module.exports = function(grunt) {
         copy: {
             dist: {
                 files: [{
-                        expand: true,
-                        dot: true,
-                        cwd: '<%= yeoman.app %>',
-                        dest: '<%= yeoman.dist %>',
-                        src: [
-                            //'*.{ico,png,txt}',
-                            //'.htaccess',
-                            'bower_components/**/*.min.{js,css}',
-                            'bower_components/**/*bindonce.js',
-                            'bower_components/**/*fastclick.js',
-                            'bower_components/**/*fontawesome-webfont.ttf',
-                            '!bower_components/font-awesome/src/**/*',
-                            'images/{,*/}*.{gif,webp}',
-                            //'scripts/**/*.js',
-                            'views/directives/**/*.html',
-                            'styles/fonts/**/*',
-                            //'styles/icons/*',
-                            //'styles/*.css',
-                            'config.xml',
-                            'index.html',
-                            'main.html'
-                        ]
-                    }
-                    /*, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        //'*.{ico,png,txt}',
+                        //'.htaccess',
+                        'bower_components/**/*.min.{js,css}',
+                        'bower_components/**/*bindonce.js',
+                        'bower_components/**/*fastclick.js',
+                        'bower_components/**/*fontawesome-webfont.ttf',
+                        '!bower_components/font-awesome/src/**/*',
+                        'images/{,*/}*.{gif,webp}',
+                        //'scripts/**/*.js',
+                        'views/directives/**/*.html',
+                        'styles/fonts/**/*',
+                        //'styles/icons/*',
+                        //'styles/*.css',
+                        'config.xml',
+                        //'index.html',
+                        //'main.html'
+                    ]
+                }, {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
@@ -217,8 +216,17 @@ module.exports = function(grunt) {
                     rename: function(dest) {
                         return dest + '/main.html';
                     }
-                }*/
-                ]
+                }, {
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        'main.html'
+                    ],
+                    rename: function(dest) {
+                        return dest + '/index.html';
+                    }
+                }]
             },
             styles: {
                 expand: true,

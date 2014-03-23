@@ -1,10 +1,120 @@
 <!doctype html>
 <html>
-  <head>
-   <title>tittle</title>
-   <script>
-     window.location='./main.html';
-   </script>
-  <body>
-  </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/fluid_grid.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body ng-app="HybridApp" ng-controller="MainCtrl" ng-swipe-right="showSB()" ng-swipe-left="hideSB()">
+
+
+    <!-- Navbar -->
+    <navbar ng-show="navbar" id="navbar"></navbar>
+
+    <!-- App -->
+    <div id="app" class="page" ng-view></div>
+
+    <!-- Sidebar -->
+    <sidebar class="side-bar" ng-if="sb_visibility"></sidebar>
+
+    <!-- Pop ups -->
+    <messagedetail class="message-detail" ng-if="showMsgDetail" msg="msgDetail"></messagedetail>
+
+    <!-- Notfications -->
+    <spinner ng-if="spinner"></spinner>
+
+    <!-- build:js({.tmp,app}) cordova.js -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) cordova_plugins.js -->
+    <!-- endbuild -->
+
+    <!-- Bower modules -->
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-local-storage/angular-local-storage.min.js"></script>
+    <script src="bower_components/jshashes/hashes.min.js"></script>
+    <script src="bower_components/momentjs/min/moment.min.js"></script>
+    <script src="bower_components/zepto/zepto.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/restangular/dist/restangular.min.js"></script>
+    <script src="bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
+    <script src="bower_components/angular-bindonce/bindonce.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+
+    <!-- build:js({.tmp,app}) views/templates.js -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers\main.js"></script>
+    <script src="scripts/directives\background.js"></script>
+    <script src="scripts/controllers\EditTask.js"></script>
+    <script src="scripts/controllers\EditTeam.js"></script>
+    <script src="scripts/controllers\Home.js"></script>
+    <script src="scripts/controllers\JoinTeam.js"></script>
+    <script src="scripts/controllers\Login.js"></script>
+    <script src="scripts/controllers\ManageTasks.js"></script>
+    <script src="scripts/controllers\ManageTeam.js"></script>
+    <script src="scripts/controllers\ManageUsers.js"></script>
+    <script src="scripts/controllers\NewMessage.js"></script>
+    <script src="scripts/controllers\NewTask.js"></script>
+    <script src="scripts/controllers\NewTeam.js"></script>
+    <script src="scripts/controllers\SignUp.js"></script>
+    <script src="scripts/controllers\TaskDetail.js"></script>
+    <script src="scripts/controllers\Tasks.js"></script>
+    <script src="scripts/controllers\TeamDetail.js"></script>
+    <script src="scripts/controllers\TeamSelect.js"></script>
+    <script src="scripts/controllers\TeamUsers.js"></script>
+    <script src="scripts/services\Base64.js"></script>
+    <script src="scripts/services\Auth.js"></script>
+    <script src="scripts/services\server.js"></script>
+    <script src="scripts/filters\fromNow.js"></script>
+    <script src="scripts/filters\format.js"></script>
+    <script src="scripts/services\teamService.js"></script>
+    <script src="scripts/services\taskService.js"></script>
+    <script src="scripts/services\messageService.js"></script>
+    <script src="scripts/services\sharedProperties.js"></script>
+    <script src="scripts/controllers\UserDetail.js"></script>
+    <script src="scripts/controllers\TeamList.js"></script>
+    <script src="scripts/services\ContactService.js"></script>
+    <script src="scripts/services\NotificationService.js"></script>
+    <script src="scripts/directives\MessageDetail.js"></script>
+    <script src="scripts/controllers\edituser.js"></script>
+    <script src="scripts/services\Rest.js"></script>
+    <script src="scripts/directives\Sidebar.js"></script>
+    <script src="scripts/services\cameraService.js"></script>
+    <script src="scripts/services\cordovaReady.js"></script>
+    <script src="scripts/controllers\EditProfile.js"></script>
+    <script src="scripts/services\userService.js"></script>
+    <script src="scripts/directives\Spinner.js"></script>
+    <script src="scripts/directives\Navbar.js"></script>
+    <script src="scripts/services\Navbar.js"></script>
+    <!-- endbuild -->
+
+    <script>
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+    </script>
+
+</body>
+
 </html>

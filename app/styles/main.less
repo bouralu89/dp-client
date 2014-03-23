@@ -335,6 +335,7 @@ input, button, textarea {
     background-color: #B34043 !important;
 }
 .list {
+    position: relative;
     width: 100%;
     overflow: hidden;
     background: #fff;
@@ -396,7 +397,7 @@ input, button, textarea {
     position: absolute;
     font-family: FontAwesome;
     right: .625em;
-    margin-top: -2.25em;
+    top: calc(~'50% - 0.5625em');
 }
 .list:active {
     background-color: #B9DCFF;
@@ -691,13 +692,13 @@ input, button, textarea {
             float: left;
             input {
                 display: block;
-margin: .3125em auto;
-border: .125em solid #ddd;
-background: #eee;
-padding: .5em;
-padding-left: .625em;
-border-radius: .5em;
-width: 95%;
+                margin: .3125em auto;
+                border: .125em solid #ddd;
+                background: #eee;
+                padding: .5em;
+                padding-left: .625em;
+                border-radius: .5em;
+                width: 95%;
             }
         }
         #text {
@@ -824,7 +825,7 @@ width: 95%;
                 }
                 .text {
                     font-size: .875em;
-width: 85%;
+                    width: 85%;
                 }
             }
         }
@@ -847,9 +848,9 @@ width: 85%;
         }
         #name {
             font-size: 1.125em;
-text-align: center;
-color: #fff;
-padding-top: 2.4em;
+            text-align: center;
+            color: #fff;
+            padding-top: 2.4em;
         }
         #manager {
             font-size: 0.875em;

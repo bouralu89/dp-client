@@ -16,9 +16,11 @@ angular.module('HybridApp')
                     scope.title = data.title;
                     scope.buttons = data.buttons;
                 });
+
                 scope.$on('title', function(e, data) {
                     scope.title = data.title;
                 });
+                
                 scope.broadcast = function(value) {
                     scope.$broadcast(value);
                 };
