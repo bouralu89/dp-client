@@ -8,7 +8,7 @@ angular.module('HybridApp')
             'refresh': true,
             'newMsg': true
         });
-        
+
         var user = Auth.getIdentity();
         var id = user._id;
 
@@ -33,63 +33,35 @@ angular.module('HybridApp')
         }];
         $scope.loading = false;
         $scope.allMessages = false;
+        $scope.messages = [];
 
         $scope.setView = function(view) {
-
             $scope.view = view;
             localStorageService.add('homeView', view);
 
-            switch (view) {
-                case 'Teams':
-                    if ($scope.teams) {
-                        break
-                    } else {
-                        Teamservice.getTeams(true).then(function(teams) {
-                            setTitle();
-                            $scope.teams = teams;
-                        });
-                    }
-                    break
-                case 'News':
-                    if ($scope.messages) {
-                        break
-                    } else {
-                        Messageservice.getAll(new Date().toISOString(), true).then(function(msgs) {
-                            setTitle();
-                            console.log(msgs);
-                            $scope.messages = msgs;
-                        });
-                    }
-                    break
-                case 'Tasks':
-                    if ($scope.tasks) {
-                        break
-                    } else {
-                        Taskservice.getCurrentByUser(true).then(function(tasks) {
-                            setTitle();
-                            $scope.tasks = tasks;
-                        });
-                    }
-                    break
-            }
-
+            resolveData(view);
         };
-
         $scope.setView($scope.view);
 
         $scope.$on('refresh', function() {
             removeTitle();
-            switch ($scope.view) {
+            resolveData($scope.view);
+        });
+
+        function resolveData(view) {
+            switch (view) {
                 case 'Teams':
                     Teamservice.getTeams(false).then(function(teams) {
                         setTitle();
+                        console.log(teams);
                         $scope.teams = teams;
                     }, function() {
                         setTitle();
                     });
                     break
                 case 'News':
-                    Messageservice.getNew($scope.messages[0].date).then(function(msgs) {
+                    var date = $scope.messages.length > 0 ? $scope.messages[0].date : moment().format();
+                    Messageservice.getNew(date).then(function(msgs) {
                         setTitle();
                         if (msgs.length != 0) {
                             $scope.messages.unshift(msgs);
@@ -107,7 +79,7 @@ angular.module('HybridApp')
                     });
                     break
             }
-        });
+        };
 
         $scope.isSelected = function(view) {
             return $scope.view === view;

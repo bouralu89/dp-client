@@ -20,6 +20,7 @@ angular.module('HybridApp')
 
         // for upload from web browser during development
         $scope.uploadFile = function(files) {
+            Navbar.showLoader();
             var fd = new FormData();
             //Take the first selected file
             fd.append("file", files[0]);
@@ -33,37 +34,45 @@ angular.module('HybridApp')
                 transformRequest: angular.identity
             }).success(function() {
                 $scope.logoUrl = server + '/team/' + $scope.team._id + '/img#' + new Date().getTime();
+                Navbar.setTitle('Edit team');
                 Notificationservice.alert("Done");
-
             }).error(function() {
+                Navbar.setTitle('Edit team');
                 Notificationservice.alert("error");
             });
 
         };
 
         $scope.editLogo = function() {
+            Navbar.showLoader();
             Cameraservice.getFileURI().then(function(imageURI) {
                 Cameraservice.uploadImage('team', $scope.team._id, imageURI).then(function() {
                     $scope.logoUrl = server + '/team/' + $scope.team._id + '/img#' + new Date().getTime();
+                    Navbar.setTitle('Edit team');
                     Notificationservice.alert("Done");
                 }, function() {
+                    Navbar.setTitle('Edit team');
                     Notificationservice.alert("Error");
                 });
 
             }, function() {
+                Navbar.setTitle('Edit team');
                 Notificationservice.error("There was an error!");
             });
         };
 
         $scope.$on('save', function() {
+            Navbar.showLoader();
             var team = $scope.team;
             if ($scope.changePass) {
                 team.password = new Hashes.SHA1().hex($scope.newPassword);
             };
 
             team.put().then(function(err) {
+                Navbar.setTitle('Edit team');
                 Notificationservice.alert('Done');
             }, function() {
+                Navbar.setTitle('Edit team');
                 Notificationservice.error('Error');
             });
         });
