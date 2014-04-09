@@ -15,18 +15,18 @@ angular.module('HybridApp')
                 });
                 return deferred.promise;
             },
-            getAll: function(from, cache) {
+            getNew: function(from) {
                 var deferred = $q.defer();
-                Rest(cache).one('user', userid).all('messages').getList({from: from}).then(function(data) {
+                Rest(false).one('user', userid).all('newmessages').getList({from: from}).then(function(data) {
                     deferred.resolve(data);
                 }, function() {
                     deferred.reject();
                 });
                 return deferred.promise;
             },
-            getNew: function(date) {
+            getMore: function(from) {
                 var deferred = $q.defer();
-                Rest(false).one('user', userid).all('newmessages').getList({date: date}).then(function(data) {
+                Rest(false).one('user', userid).all('messages').getList({from: from}).then(function(data) {
                     deferred.resolve(data);
                 }, function() {
                     deferred.reject();

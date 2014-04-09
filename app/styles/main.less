@@ -393,11 +393,13 @@ input, button, textarea {
 .list:after {
     content:"\f054";
     color: #aaa;
-    font-size: 1.125em;
+    /* font-size: 1.125em; */
     position: absolute;
+    //top: 0;
+    bottom: 0;
     font-family: FontAwesome;
     right: .625em;
-    top: calc(~'50% - 0.5625em');
+    top: -webkit-calc(~'50% - 0.5625em');
 }
 .list:active {
     background-color: #B9DCFF;
@@ -839,7 +841,7 @@ input, button, textarea {
     background-repeat: no-repeat;
     background-size: 100% auto;
     .info {
-        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(15%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(50, 50, 50, 1)));
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, #111));
         height: 8.25em;
         /* 100/16 */
         span {

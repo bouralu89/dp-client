@@ -38,7 +38,6 @@ angular.module('HybridApp')
         $scope.setView = function(view) {
             $scope.view = view;
             localStorageService.add('homeView', view);
-
             resolveData(view);
         };
         $scope.setView($scope.view);
@@ -60,15 +59,25 @@ angular.module('HybridApp')
                     });
                     break
                 case 'News':
-                    var date = $scope.messages.length > 0 ? $scope.messages[0].date : moment().format();
-                    Messageservice.getNew(date).then(function(msgs) {
-                        setTitle();
-                        if (msgs.length != 0) {
-                            $scope.messages.unshift(msgs);
-                        }
-                    }, function() {
-                        setTitle();
-                    });
+                    if ($scope.messages.length <= 0) {
+                        Messageservice.getMore(moment().format()).then(function(msgs) {
+                            setTitle();
+                            console.log(msgs);
+                            $scope.messages = msgs;
+                        }, function() {
+                            setTitle();
+                        });
+                    } else {
+                        Messageservice.getNew($scope.messages[0].date).then(function(msgs) {
+                            setTitle();
+                            console.log(msgs);
+                            if (msgs.length > 0) {
+                                $scope.messages.unshift(msgs);
+                            };
+                        }, function() {
+                            setTitle();
+                        });
+                    };
                     break
                 case 'Tasks':
                     Taskservice.getCurrentByUser(false).then(function(tasks) {
@@ -91,7 +100,7 @@ angular.module('HybridApp')
             };
             $scope.loading = !$scope.loading;
 
-            Messageservice.getAll($scope.messages[$scope.messages.length - 1].date, false).then(function(msgs) {
+            Messageservice.getMore($scope.messages[$scope.messages.length - 1].date, false).then(function(msgs) {
                 if (msgs.length == 5) {
                     _.forEach(msgs, function(msg) {
                         $scope.messages.push(msg);
