@@ -31,6 +31,7 @@ angular.module('HybridApp')
             'view': 'Tasks',
             'icon': 'clipboard'
         }];
+        
         $scope.loading = false;
         $scope.allMessages = false;
         $scope.messages = [];

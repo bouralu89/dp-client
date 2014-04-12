@@ -5,13 +5,13 @@
     </a>
 </div>
 <div class="content-no-tab row scroll-y">
-		<form class="editor" name="signupform" ng-submit="signup(user)">
+		<form class="editor" name="signupform" ng-submit="signup(signupform.$valid)" novalidate>
 			<div class="container_12 inactive">
 				<div class="grid_3 placeholder">
 					<span>First name</span>
 				</div>
 				<div class="grid_9">
-					<input type="text" ng-model="user.first_name" required>
+					<input type="text" ng-model="user.first_name" ng-minlength="2" required>
 				</div>
 			</div>
 			<div class="container_12 inactive no-margin">
@@ -19,7 +19,7 @@
 					<span>Last name</span>
 				</div>
 				<div class="grid_9">
-					<input type="text" ng-model="user.surname" required>
+					<input type="text" ng-model="user.surname" ng-minlength="2" required>
 				</div>
 			</div>
 			<div class="container_12 inactive no-margin">
@@ -35,7 +35,7 @@
 					<span>Username</span>
 				</div>
 				<div class="grid_9">
-					<input type="text" ng-model="user.username" required>
+					<input type="text" ng-model="user.username" ng-minlength="5" required>
 				</div>
 			</div>
 			<div class="container_12 inactive">
@@ -43,7 +43,7 @@
 					<span>Password</span>
 				</div>
 				<div class="grid_9">
-					<input type="password" ng-model="user.password" required>
+					<input type="password" ng-model="user.password" ng-minlength="5" required>
 				</div>
 			</div>
 			<div class="container_12 inactive no-margin">
@@ -51,7 +51,7 @@
 					<span>Pass. ver.</span>
 				</div>
 				<div class="grid_9">
-					<input type="password" ng-model="confirmpassword" required>
+					<input type="password" ng-model="confirmpassword" ng-minlength="5" required>
 				</div>
 			</div>
 			<div class="container_12">

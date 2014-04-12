@@ -45,6 +45,11 @@ angular.module('HybridApp')
                 },
                 hide: function() {
                     $rootScope.spinner = false;
+                },
+                showText: function(text) {
+                    console.log(text)
+                    $rootScope.spinnerText = text;
+                    $rootScope.spinner = true;
                 }
             }
         }

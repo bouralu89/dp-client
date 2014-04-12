@@ -25,7 +25,7 @@ angular.module('HybridApp')
                     comment.user = user._id;
                     scope.message.comments.post(comment).then(function() {
                         comment.user = user;
-                        comment.date = new Date;
+                        comment.date = new Date();
                         scope.message.comments.splice(0, 0, comment);
                         scope.comment = {};
                     });

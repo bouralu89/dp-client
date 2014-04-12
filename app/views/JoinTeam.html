@@ -26,32 +26,34 @@
     <div class="team_card_wrapper" ng-show="team">
         <div class="team_card">
             <div id="info">
-                <img ng-src="{{url}}/team/{{team._id}}/img">
+                <div class="image">
+                    <img ng-src="{{url}}/team/{{team._id}}/img">
+                </div>
                 <span id="name">{{team.name}}</span>
                 <span id="code">{{team.code}}</span>
                 <span id="description">{{team.description}}</span>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>{{team.manager.first_name + ' ' + team.manager.surname}}</th>
-                            <th>{{team.users.length}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Manager</td>
-                            <td>Users</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{team.manager.first_name + ' ' + team.manager.surname}}</th>
+                        <th>{{team.users.length}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Manager</td>
+                        <td>Users</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <div ng-show="allreadyIn" class="allready">Joined</div>
 
         </div>
 
         <button ng-hide="allreadyIn" class="btn-join" ng-click="join()">Join</button>
-        
+
     </div>
 
 </div>

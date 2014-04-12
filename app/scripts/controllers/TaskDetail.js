@@ -20,7 +20,7 @@ angular.module('HybridApp')
         $scope.$on('addToCalendar', function() {
             var task = $scope.task;
             CordovaService.ready.then(function() {
-                window.plugins.calendar.createEvent(task.title, null, task.text, new Date(task.created), new Date(task.endDate), function() {
+                window.plugins.calendar.createEvent(task.title, task.team.name, task.text, task.text, new Date(task.created), new Date(task.endDate), function() {
                     Notificationservice.alert('Done.');
                 }, function() {
                     Notificationservice.alert('Error.');

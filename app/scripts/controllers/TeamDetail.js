@@ -14,7 +14,7 @@ angular.module('HybridApp')
         $scope.user = Auth.getIdentity();
         $scope.showDetail = false;
 
-        Teamservice.getTeam(teamId, true).then(function(team) {
+        Teamservice.getTeam(teamId, false).then(function(team) {
             $scope.team = team;
 
             team.getList('messages').then(function(msgs) {

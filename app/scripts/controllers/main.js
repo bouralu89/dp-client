@@ -5,9 +5,8 @@ angular.module('HybridApp')
 
         $scope.msgDetail = {};
         $scope.showMsgDetail = false;
-        $scope.spinner = false;
+        //$scope.spinner = false;
         $scope.sb_visibility = false;
-        $scope.spinner = false;
 
         $scope.$on('move', function() {
             $scope.sb_visibility = !$scope.sb_visibility;
@@ -17,6 +16,7 @@ angular.module('HybridApp')
             $scope.msgDetail = message;
             $scope.showMsgDetail = true;
         };
+
         $scope.closeMessage = function(){
             $scope.showMsgDetail = false;
         };

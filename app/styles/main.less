@@ -410,47 +410,33 @@ input, button, textarea {
         width: 95%;
         overflow: hidden;
         margin-top: 0.625em;
-        /* 10/16 */
         margin-left: auto;
         margin-right: auto;
-        box-shadow: 0.0625em 0em 0em #ddd;
-        /* 1/16 */
-        /* 0/16 */
-        /* 0/16 */
         z-index: 15;
-        img {
+        .image {
             width: 2.5em;
-            /* 40/16 */
             height: 2.5em;
-            /* 40/16 */
             overflow: hidden;
             float: left;
-            background: #fff;
-            margin: 0em;
-            /* 0/16 */
-            border-radius: 1.25em;
-            /* 20/16 */
-            //border: 0.0625em solid #ddd;
-            /* 1/16 */
+            border-radius: 50%;
+            margin: .5em;
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
         #info {
             z-index: 20;
-            padding: 0.625em;
-            /* 10/16 */
             background-color: #fff;
             border-bottom: 0.0625em solid #ddd;
-            /* 1/16 */
+            overflow: hidden;
         }
         .allready {
             position: absolute;
             top: 0.9375em;
-            /* 15/16 */
             right: -2.0625em;
-            /* 33/16 */
             width: 7.5em;
-            /* 120/16 */
             padding: 0.0625em;
-            /* 1/16 */
             font-size: 1em;
             overflow: hidden;
             color: #fff !important;
@@ -459,56 +445,42 @@ input, button, textarea {
             text-align: center;
             -webkit-transform: rotate(45deg);
             border: 0.0625em dashed #fff;
-            /* 1/16 */
             box-shadow: 0 0 0 0.125em #2879cb, 0.125em 0.0625em 0.25em 0.0625em rgba(10, 10, 0, 0.5);
-            /* 2/16 */
-            /* 2/16 */
-            /* 1/16 */
-            /* 4/16 */
-            /* 1/16 */
         }
         span {
             display: block;
             width: 100%;
         }
         #name {
-            margin-left: 2.8125em;
-            /* 45/16 */
             font-size: 1.125em;
-            /* 18/16 */
             color: #000;
+            padding-top: .5em;
         }
         #code {
-            margin-left: 2.8125em;
-            /* 45/16 */
-            padding-bottom: 0.3125em;
-            /* 5/16 */
-            font-size: 0.75em;
-            /* 12/16 */
+            padding-bottom: .3125em;
+            font-size: .75em;
             color: #777;
         }
         #description {
-            padding-bottom: 0.625em;
-            /* 10/16 */
-            padding-top: 0.625em;
-            /* 10/16 */
-            font-size: 0.75em;
-            /* 12/16 */
+            font-size: .75em;
             color: #000;
-            border-top: 0.0625em solid #ddd;
-            /* 1/16 */
-            border-bottom: 0.0625em solid #ddd;
-            /* 1/16 */
+            border-top: .1em solid #ddd;
+            border-bottom: .0625em solid #ddd;
+            float: left;
+            clear: both;
+            padding: 1em;
         }
         #manager {
             font-size: 0.875em;
             /* 14/16 */
         }
         table {
-            margin-top: 0.625em;
-            /* 10/16 */
+            padding: .625em 0;
             width: 100%;
             text-align: center;
+            background: #fff;
+            margin: .75em 0 .5em 0;
+            border-bottom: 1px solid #ddd;
             th, td {
                 width: 50%;
                 font-weight: 100;
@@ -1288,8 +1260,14 @@ input, button, textarea {
         background: @green;
         cursor: pointer;
     }
+    button:active {
+        background: #1C956D;
+    }
     .signup {
         background: #00BBFF;
+    }
+    .signup:active {
+        background: #009DD9;
     }
 }
 .editor {
@@ -1579,39 +1557,19 @@ input, button, textarea {
  .nodata {
     width: 100%;
     padding-top: 1.5625em;
-    /* 25/16 */
     text-align: center;
     color: #ddd;
     font-size: 2.5em;
-    /* 42/16 */
-    text-shadow: 0em 0.0625em 0em rgba(255, 255, 255, .95), 0em -0.0625em 0em rgba(50, 50, 50, .2);
-    /* 0/16 */
-    /* 2/16 */
-    /* 0/16 */
-    /* 0/16 */
-    /* 1/16 */
-    /* 0/16 */
 }
 .pageloader {
     width: 100%;
-    /* 5/16 */
     padding: 0.75em 0 1.125em 0;
-    /* 12/16 */
     text-align: center;
     color: #ccc;
     font-size: 1.5em;
-    /* 32/16 */
-    text-shadow: 0em 0.0625em 0em rgba(255, 255, 255, .95), 0em -0.0625em 0em rgba(50, 50, 50, .2);
-    /* 0/16 */
-    /* 2/16 */
-    /* 0/16 */
-    /* 0/16 */
-    /* 1/16 */
-    /* 0/16 */
     i {
         color: #ddd !important;
         font-size: 1.5em !important;
-        /* 32/16 */
     }
 }
 .pageloader:active {

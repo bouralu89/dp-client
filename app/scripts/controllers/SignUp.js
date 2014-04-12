@@ -2,27 +2,34 @@
 
 angular.module('HybridApp')
     .controller('SignupCtrl', function($scope, Restangular, Notificationservice, $location) {
-        $scope.signup = function(user) {
-            console.log('click');
-            if ($scope.user.password != $scope.confirmpassword) {
+
+        $scope.user = {};
+
+        $scope.signup = function(isValid) {
+            var user = $scope.user;
+            if (user.password != $scope.confirmpassword) {
                 Notificationservice.alert('Passwords doesn´t match...');
                 return
             }
 
-            if ($scope.signupform.$invalid) {
+            if (!isValid) {
                 Notificationservice.alert('Invalid form...');
                 return
             }
+
+            Notificationservice.spinner.showText('Please wait...');
 
             var hash = new Hashes.SHA1().hex(user.password).toString();
             user.password = hash;
 
             Restangular.all('users').post(user).then(function() {
+                Notificationservice.spinner.hide();
                 $scope.user = {};
                 $scope.confirmpassword = '';
                 Notificationservice.alert('Your profile has been created.');
                 $location.url('Login');
             }, function(response) {
+                Notificationservice.spinner.hide();
                 if (response.status == 406) {
                     $scope.user.password = '';
                     $scope.user.username = '';
