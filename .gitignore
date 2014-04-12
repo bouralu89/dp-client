@@ -10,3 +10,4 @@ karma.conf.js
 app/bower_components
 app/server.js
 cordova
+npm-debug.log
