@@ -14,15 +14,17 @@
         </div>
         <div bindonce="msg" ng-repeat="msg in messages" class="message" ng-click="openMessage(messages[$index])">
             <div class="head">
-                <img bo-src="url + '/team/' + msg.team._id + '/img'" alt="" border="0">
+                <img bo-src="url + '/user/' + msg.user._id + '/img'" alt="" border="0">
                 <div class="info">
-                    <span id="name" bo-text="msg.user.first_name + ' ' + msg.user.surname"></span>
-                    <span id="team" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
+                    <span class="name" bo-text="msg.user.firstName + ' ' + msg.user.lastName"></span>
+                    <span class="teamago" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
 
                 </div>
             </div>
             <div id="text" bo-text="msg.text"></div>
-            <div class="footer"><span><i class="fa fa-comments-o"></i> Comments {{msg.commentcount}}</span></div>
+            <div class="footer">
+                <span><i class="fa fa-comments-o"></i> Comments {{msg.commentcount}}</span>
+            </div>
         </div>
         <div ng-switch on="loading" ng-click="loadMore()" ng-if="messages.length >= 5 && allMessages != true">
             <div ng-switch-when="false" class="pageloader">
@@ -40,7 +42,11 @@
             No teams
         </div>
         <a bindonce ng-repeat="team in teams" href="" class="list" ng-click="go_to('/TeamDetail/' + team._id)">
-            <img bo-src="url + '/team/' + team._id + '/img'" alt="" class="logo">
+
+            <div class="logo">
+                <img bo-src="url + '/team/' + team._id + '/img'" alt="">
+            </div>
+
             <div class="info">
                 <span id="title" bo-text="team.name"></span>
                 <span id="subtitle" bo-text="team.code"></span>
@@ -54,11 +60,36 @@
         <div class="nodata" ng-if="tasks.length == 0">
             No tasks
         </div>
-        <a href="" bindonce ng-repeat="task in tasks" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+        <div class="label">
+            Next 30 days
+        </div>
+        <a href="" bindonce ng-repeat="task in tasks | filter:thisMonth" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+            <div class="logo">
+                <img bo-src="url + '/team/' + task.team._id + '/img'" alt="">
+                <div class="overlay">
+                    <span class="day" bo-text="task.endDate | format:'DD'"></span>
+                    <span class="year" bo-text="task.endDate | format:'MMMM'"></span>
+                </div>
+            </div>
             <div class="info">
                 <span id="title" bo-text="task.title"></span>
-                <span id="subtitle" bo-text="'Team:' + task.team.name"></span>
-                <span id="subtitle" bo-text="'Deadline:' + (task.endDate | format:'DD.MM.YYYY HH:mm')"></span>
+                <span id="subtitle" bo-text="task.team.name"></span>
+            </div>
+        </a>
+        <div class="label-space">
+            Later this year
+        </div>
+        <a href="" bindonce ng-repeat="task in tasks | filter:laterThisYear" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+            <div class="logo">
+                <img bo-src="url + '/team/' + task.team._id + '/img'" alt="">
+                <div class="overlay">
+                    <span class="day" bo-text="task.endDate | format:'DD'"></span>
+                    <span class="year" bo-text="task.endDate | format:'MMMM'"></span>
+                </div>
+            </div>
+            <div class="info">
+                <span id="title" bo-text="task.title"></span>
+                <span id="subtitle" bo-text="task.team.name"></span>
             </div>
         </a>
     </div>

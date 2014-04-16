@@ -23,7 +23,7 @@
     <div id="teamDetail" background="{{url}}/team/{{teamId}}/img">
         <div class="info">
             <span bo-text="team.name" id="name"></span>
-            <span bo-text="team.manager.first_name + ' ' + team.manager.surname" id="manager"></span>
+            <span bo-text="team.manager.firstName + ' ' + team.manager.lastName" id="manager"></span>
         </div>
     </div>
     <div class="team-tab">
@@ -44,8 +44,8 @@
             <div class="head">
                 <img bo-src="url + '/user/' + msg.user._id + '/img'" alt="" border="0">
                 <div class="info">
-                    <span id="name" bo-text="msg.user.first_name + ' ' + msg.user.surname"></span>
-                    <span id="team" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
+                    <span class="name" bo-text="msg.user.firstName + ' ' + msg.user.lastName"></span>
+                    <span class="teamago" bo-text="msg.team.name + ' - ' + (msg.date | fromNow)"></span>
 
                 </div>
             </div>

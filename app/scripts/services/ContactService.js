@@ -28,12 +28,12 @@ angular.module('HybridApp')
                 CordovaService.ready.then(function() {
                     try {
                         var contact = navigator.contacts.create({
-                            "displayName": user.first_name + ' ' + user.surname
+                            "displayName": user.firstName + ' ' + user.lastName
                         });
                         var contactName = {
-                            formatted: user.first_name + ' ' + user.surname,
-                            familyName: user.surname,
-                            givenName: user.first_name,
+                            formatted: user.firstName + ' ' + user.lastName,
+                            familyName: user.lastName,
+                            givenName: user.firstName,
                             middleName: ""
                         };
 

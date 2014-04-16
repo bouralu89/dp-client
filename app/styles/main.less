@@ -111,7 +111,7 @@ input, button, textarea {
         width: 100%;
         position: absolute;
         font-size: 1.125em;
-        padding-top: 0.5em;
+        padding-top: 0.6em;
         color: #fff;
         pointer-events: none;
         white-space: nowrap;
@@ -188,7 +188,6 @@ input, button, textarea {
     .nav li {
         height: 100%;
         padding-top: 0.5em;
-        /* 6/16 */
         font-size: 0.875em;
         display: inline;
         float: left;
@@ -196,7 +195,6 @@ input, button, textarea {
         width: 33%;
         text-align: center;
         color: #858B99;
-        //border-right: 0.125em solid #ddd;
         span {
             display: inline-block;
             width: 100%;
@@ -206,7 +204,6 @@ input, button, textarea {
                 padding: 0.125em 0.25em;
             }
         }
-        /* 1/16 */
     }
     .nav li:last-of-type {
         width: 34%;
@@ -220,17 +217,13 @@ input, button, textarea {
 }
 .content.row {
     top: 5.125em;
-    /* 80/16 */
     bottom: 0em;
-    /* 0/16 */
     background: @background;
     padding: 0;
 }
 .content-no-tab.row {
-    top: 2.75em;
-    /* 45/16 */
+    top: 2.8125em;
     bottom: 0em;
-    /* 0/16 */
     background: @background;
     padding: 0;
 }
@@ -244,12 +237,8 @@ input, button, textarea {
         height: 100%;
         width: 80%;
         box-shadow: 0em 0.0625em 0.3125em #111;
-        /* 0/16 */
-        /* 1/16 */
-        /* 5/16 */
         .nav-bar-side {
             background-color: #303030 !important;
-            /* 3/16 */
             width: 80%;
             height: 2.8125em;
         }
@@ -257,11 +246,8 @@ input, button, textarea {
             overflow: hidden;
             background-color: #373737 !important;
             padding-bottom: 0.625em;
-            /* 10/16 */
             top: 2.8125em;
-            /* 45/16 */
             bottom: 0em;
-            /* 0/16 */
             background: #f6f7f6;
             padding: 0;
             width: 80%;
@@ -273,9 +259,7 @@ input, button, textarea {
             li {
                 width: 100%;
                 height: 2.1875em;
-                /* 35/16 */
                 margin-top: 0.3125em;
-                /* 5/16 */
                 float: left;
             }
             a {
@@ -284,19 +268,14 @@ input, button, textarea {
                 display: block;
                 text-decoration: none;
                 border-bottom: 0.0625em dashed #555;
-                /* 1/16 */
                 font-family: Roboto-Condensed;
                 font-size: 1.125em;
-                /* 18/16 */
                 text-align: left;
                 padding-left: 0.625em;
-                /* 10/16 */
                 padding-top: 0.1875em;
-                /* 3/16 */
                 color: #bbb;
                 i {
                     margin-right: 0.625em;
-                    /* 10/16 */
                 }
             }
         }
@@ -337,25 +316,54 @@ input, button, textarea {
 .list {
     position: relative;
     width: 100%;
+    height: 3.1em;
     overflow: hidden;
     background: #fff;
     border-bottom: 0.0625em solid #ddd;
     /* 1/16 */
     display: block;
     text-decoration: none;
-    float: left;
     .logo {
-        width: 2.25em;
-        /* 40/16 */
-        height: 2.25em;
-        /* 40/16 */
-        overflow: hidden;
+        width: 3.1em;
+        height: 3.1em;
+        margin-right: .5em;
+        /* overflow: hidden; */
         float: left;
         background: #fff;
-        margin: 0.3125em 0.625em;
-        /* 5/16 */
-        /* 10/16 */
-        border-radius: 50%;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3.1em;
+            height: 3.1em;
+            text-align: center;
+            .day {
+                font-family: Roboto-Condensed-light;
+                color: #fff;
+                display: inline-block;
+                font-size: 1.25em;
+                line-height: 1.25em;
+                padding-top: .2em;
+                float: left;
+                width: 100%;
+height: 50%;
+            }
+            .year {
+                color: #fff;
+                display: inline-block;
+                
+                padding-top: .6em;
+                font-size: .7em;
+                line-height: .7em;
+                float: left;
+                width: 100%;
+height: 50%;
+            }
+        }
     }
     .info {
         padding: 0.375em;
@@ -393,9 +401,7 @@ input, button, textarea {
 .list:after {
     content:"\f054";
     color: #aaa;
-    /* font-size: 1.125em; */
     position: absolute;
-    //top: 0;
     bottom: 0;
     font-family: FontAwesome;
     right: .625em;
@@ -472,7 +478,6 @@ input, button, textarea {
         }
         #manager {
             font-size: 0.875em;
-            /* 14/16 */
         }
         table {
             padding: .625em 0;
@@ -485,7 +490,6 @@ input, button, textarea {
                 width: 50%;
                 font-weight: 100;
                 height: 1.125em;
-                /* 18/16 */
             }
             th {
                 font-size: 1em;
@@ -493,7 +497,6 @@ input, button, textarea {
             }
             td {
                 font-size: 0.75em;
-                /* 12/16 */
                 color: #777;
             }
         }
@@ -505,9 +508,7 @@ input, button, textarea {
         color: #fff;
         font-family: Roboto-Condensed;
         height: 2.5em;
-        /* 40/16 */
         margin-top: 0.3125em;
-        /* 5/16 */
         font-size: 1em;
         outline: none;
         border: none;
@@ -530,65 +531,34 @@ input, button, textarea {
         width: 100%;
         float: left;
         border-bottom: 0.0625em solid #eee;
-        /* 1/16 */
         img {
             width: 2.5em;
-            /* 40/16 */
             height: 2.5em;
-            /* 40/16 */
             float: left;
             background: #fff;
             margin: 0.3125em 0.625em;
-            /* 5/16 */
-            /* 10/16 */
             border-radius: 50%;
-            /* 20/16 */
         }
         .info {
             margin-left: 0.125em;
-            /* 50/16 */
             display: block;
-            #team {
+            .teamago {
                 font-family: Roboto-Condensed;
                 font-size: 0.75em;
-                /* 12/16 */
                 margin: 0em 0.1875em 0.1875em 0.625em;
-                /* 0/16 */
-                /* 3/16 */
-                /* 3/16 */
-                /* 10/16 */
                 padding-top: 0em;
-                /* 0/16 */
                 padding-bottom: 0.0625em;
-                /* 1/16 */
                 color: #999;
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
             }
-            #ago {
-                padding: 0em 0.3125em 0em 0em;
-                /* 0/16 */
-                /* 5/16 */
-                /* 0/16 */
-                /* 0/16 */
-                font-family: Roboto-Condensed;
-                font-size: 0.5625em;
-                font-stretch: condensed;
-                overflow: hidden;
-                color: #555;
-                float: right;
-            }
-            #name {
+            .name {
                 font-family: Roboto-Condensed;
                 color: #000;
                 font-size: 1em;
                 line-height: 1em;
                 margin: 0.5625em 0.1875em 0em 0.625em;
-                /* 9/16 */
-                /* 3/16 */
-                /* 0/16 */
-                /* 10/16 */
             }
         }
     }
@@ -599,7 +569,6 @@ input, button, textarea {
         font-family: Roboto-Condensed;
         font-size: 0.875em;
         padding: 0.625em;
-        /* 10/16 */
     }
     .footer {
         width: 100%;
@@ -632,26 +601,18 @@ input, button, textarea {
     .back {
         position: absolute;
         top: -1.25em;
-        /* 20/16 */
         left: -0.625em;
-        /* 10/16 */
         width: 2.25em;
-        /* 36/16 */
         height: 2.25em;
-        /* 36/16 */
         border-radius: 1.125em;
-        /* 18/16 */
         background: #42A8D9;
         padding: 0.3125em;
-        /* 5/16 */
         padding-left: 0.5em;
-        /* 8/16 */
         z-index: 1210;
     }
     .msg {
         position: absolute;
         top: 1.875em;
-        /* 30/16 */
         left: 2.5%;
         min-height: 100%;
         width: 95%;
@@ -682,32 +643,21 @@ input, button, textarea {
             font-family: Roboto-Condensed;
             font-size: 0.875em;
             padding: 0.625em;
-            /* 10/16 */
             border-bottom: 0.0625em solid #eee;
-            /* 1/16 */
         }
         .head {
             width: 100%;
             float: left;
             border-bottom: 0.0625em solid #ddd;
-            /* 1/16 */
             background: #eee;
             .info {
                 margin-left: 3.125em;
-                /* 50/16 */
                 #team {
                     font-family: Roboto-Condensed;
                     font-size: 0.75em;
-                    /* 12/16 */
                     margin: 0em 0.1875em 0.1875em 0.625em;
-                    /* 0/16 */
-                    /* 3/16 */
-                    /* 3/16 */
-                    /* 10/16 */
                     padding-top: 0em;
-                    /* 0/16 */
                     padding-bottom: 0.0625em;
-                    /* 1/16 */
                     color: #999;
                     overflow: hidden;
                     white-space: nowrap;
@@ -715,10 +665,6 @@ input, button, textarea {
                 }
                 #ago {
                     padding: 0em 0.3125em 0em 0em;
-                    /* 0/16 */
-                    /* 5/16 */
-                    /* 0/16 */
-                    /* 0/16 */
                     font-family: Roboto-Condensed;
                     font-size: 8pt;
                     font-stretch: condensed;
@@ -731,27 +677,17 @@ input, button, textarea {
                     color: #000;
                     font-size: 1em;
                     line-height: 1.125em;
-                    /* 18/16 */
                     margin: 0.5625em 0.1875em 0em 0.625em;
-                    /* 9/16 */
-                    /* 3/16 */
-                    /* 0/16 */
-                    /* 10/16 */
                 }
             }
             img {
                 width: 2.5em;
-                /* 40/16 */
                 height: 2.5em;
-                /* 40/16 */
                 overflow: hidden;
                 float: left;
                 background: #fff;
                 margin: 0.3125em 0.625em;
-                /* 5/16 */
-                /* 10/16 */
                 border-radius: 1.25em;
-                /* 20/16 */
             }
         }
         .comment {
@@ -760,36 +696,24 @@ input, button, textarea {
             .logo {
                 float: left;
                 width: 2.5em;
-                /* 40/16 */
                 height: 2.5em;
-                /* 40/16 */
                 border-radius: 3.125em;
-                /* 50/16 */
                 padding: 0.3125em;
-                /* 5/16 */
                 img {
                     width: 2.5em;
-                    /* 40/16 */
                     height: 2.5em;
-                    /* 40/16 */
                     border-radius: 3.125em;
-                    /* 50/16 */
                 }
             }
             .body {
                 margin-left: 2.875em;
-                /* 46/16 */
                 padding: 0.3125em;
-                /* 5/16 */
                 width: calc(100% - 3.125em);
-                /* 50/16 */
                 .name {
                     font: Roboto-Condensed-Bold;
                     font-size: 11pt;
                     line-height: 0.75em;
-                    /* 12/16 */
                     padding-top: 0.1875em;
-                    /* 3/16 */
                     width: 100%;
                 }
                 .date {
@@ -805,6 +729,34 @@ input, button, textarea {
         }
     }
 }
+#taskDetail {
+    width: 100%;
+    height: 4.25em;
+    font-family: Roboto-Condensed;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    .info {
+        //background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, #111));
+        height: 4.25em;
+        span {
+            color: white;
+            display: block;
+        }
+        #title {
+            font-size: 1.125em;
+            text-align: center;
+            color: #fff;
+            padding-top: .7em;
+        }
+        #team {
+            font-size: 0.875em;
+            text-align: center;
+            color: #ccc;
+            padding-top: 0em;
+        }
+    }
+}
 #teamDetail {
     width: 100%;
     min-height: 6.25em;
@@ -815,7 +767,6 @@ input, button, textarea {
     .info {
         background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, #111));
         height: 8.25em;
-        /* 100/16 */
         span {
             color: white;
             display: block;
@@ -828,27 +779,20 @@ input, button, textarea {
         }
         #manager {
             font-size: 0.875em;
-            /* 14/16 */
             text-align: center;
             color: #ccc;
             padding-top: 0em;
-            /* 0/16 */
         }
         #desc {
             padding: 0 0.3125em;
-            /* 5/16 */
             max-height: 2.0625em;
-            /* 33/16 */
             padding-bottom: 0.1875em;
-            /* 3/16 */
             overflow: scroll;
             font-family: Roboto-Condensed;
             font-size: 0.75em;
-            /* 12/16 */
             text-align: center;
             color: #999;
             margin-top: 0.1875em;
-            /* 3/16 */
         }
         #desc::-webkit-scrollbar {
             display: none;
@@ -885,15 +829,12 @@ input, button, textarea {
 .task-wrapper {
     overflow: hidden;
     min-height: 12.5em;
-    /* 200/16 */
     #task-detail {
         margin-bottom: 0em;
-        /* 0/16 */
         background-color: #fff;
         z-index: 30;
         position: relative;
-        min-height: 5.875em;
-        /* 94/16 */
+        min-height: 2.5em;
         span {
             color: #111;
             display: block;
@@ -902,19 +843,15 @@ input, button, textarea {
         .info {
             overflow: hidden;
             border-bottom: 0.0625em solid #ccc;
-            /* 1/16 */
             padding: 0.1875em;
-            /* 3/16 */
             background: #fff;
             position: relative;
             z-index: 400;
             width: 100%;
             height: 3.375em;
-            /* 54/16 */
             .title {
                 font-size: 1em;
                 padding-top: 0.25em;
-                /* 4/16 */
                 text-align: left;
                 color: #000;
                 width: 100%;
@@ -924,94 +861,61 @@ input, button, textarea {
             }
             .teamName {
                 font-size: 0.75em;
-                /* 12/16 */
                 text-align: left;
                 padding-top: 0.0625em;
-                /* 1/16 */
                 color: #555;
             }
             .add {
                 font-family: Arial;
                 font-weight: 100;
                 width: 2.375em;
-                /* 38/16 */
                 height: 2.375em;
-                /* 38/16 */
                 color: #aaa;
                 position: absolute;
                 right: 0.3125em;
-                /* 5/16 */
                 top: 0.3125em;
-                /* 5/16 */
                 font-size: 1.75em;
-                /* 28/16 */
                 padding: 0em 0.625em 0em 0.625em;
-                /* 0/16 */
-                /* 10/16 */
-                /* 0/16 */
-                /* 10/16 */
                 border: 0.0625em solid #aaa;
-                /* 1/16 */
                 border-radius: 0.1875em;
-                /* 3/16 */
             }
             img {
                 margin-top: 0.25em;
-                /* 4/16 */
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
                 width: 2.5em;
-                /* 40/16 */
                 height: 2.5em;
-                /* 40/16 */
                 border-radius: 50%;
                 background: #fff;
             }
         }
         .dates {
             border-bottom: 0.0625em solid #ccc;
-            /* 1/16 */
             overflow: hidden;
             background-color: #f3f3f3;
-            //position: absolute;
-            //top: 3.8125em;
-            /* 61/16 */
             width: 100%;
             height: 2.5em;
-            /* 40/16 */
-            //left: 0em;
-            /* 0/16 */
-            //box-shadow: 0.0625em 0em 0.3125em #555;
-            /* 1/16 */
-            /* 0/16 */
-            /* 5/16 */
             #created, #deadline {
                 padding-top: 0.125em;
-                /* 2/16 */
                 width: 50%;
                 float: left;
                 font-size: 0.875em;
-                /* 14/16 */
             }
             #created, #created_desc {
                 padding-left: 0.625em;
-                /* 10/16 */
                 text-align: left;
             }
             #deadline, #deadline_desc {
                 padding-right: 0.625em;
-                /* 10/16 */
                 text-align: right;
             }
             #created_desc, #deadline_desc {
                 width: 50%;
                 float: left;
                 font-size: 0.75em;
-                /* 12/16 */
                 color: #777;
                 padding-bottom: 0.125em;
-                /* 2/16 */
             }
         }
         .clear {
@@ -1021,28 +925,26 @@ input, button, textarea {
     .task_text {
         padding: .625em;
         font-family: android !important;
-        font-size: 12pt;
+        //font-size: 12pt;
         background: #fff;
-        line-height: 18pt;
+        //line-height: 18pt;
         margin: .5em .5em;
         border-bottom: 1px solid #ddd;
         border-right: 1px solid #ddd;
     }
-    /*.notepad {
-        padding: 0.125em 0.9375em;
-        resize: none;
-        margin: 0em auto;
-        box-shadow: 0 0 0.3125em rgba(0, 0, 0, 0.2), inset 0 0 3.125em rgba(0, 0, 0, 0.1);
-        background: #fcf59b;
-        background-image: 
-        -webkit-linear-gradient(top , transparent, transparent 1.875em,#81cbbc 0);
-        -webkit-background-size: 100% 1.9375em;
+    .notepad {
+        padding: .125em .65em;
+resize: none;
+box-shadow: 0 0 .3125em rgba(0,0,0,0.2),inset 0 0 3.125em rgba(0,0,0,0.1);
+background: #fcf59b;
+background-image: -webkit-linear-gradient(top, transparent, transparent 1.7em, #81cbbc 0);
+-webkit-background-size: 100% 1.75em;
     }
     p {
         font-family: Georgia, Times, "Times New Roman", serif;
-        font-size: 0.875em;
-        line-height: 1.9375em;
-        }*/
+        //font-size: 0.875em;
+        line-height: 1.75em;
+        }
 }
 .tm_wrapper {
     position: absolute;
@@ -1053,13 +955,9 @@ input, button, textarea {
         width: 100%;
         position: absolute;
         top: 2.8125em;
-        /* 45/16 */
         z-index: 2100;
         background-color: #373737;
         box-shadow: 0em 0em 0.625em #000;
-        /* 0/16 */
-        /* 0/16 */
-        /* 10/16 */
         ul {
             list-style: none;
         }
@@ -1122,15 +1020,10 @@ input, button, textarea {
     .info {
         float: left;
         border-left: 0.0625em solid #ddd;
-        /* 1/16 */
         margin-top: 0.6875em;
-        /* 11/16 */
         margin-left: 0.625em;
-        /* 10/16 */
         padding-left: 0.625em;
-        /* 10/16 */
         padding-bottom: 0.3125em;
-        /* 5/16 */
         span {
             float: left;
             clear: left;
@@ -1140,7 +1033,6 @@ input, button, textarea {
         .name {
             font-size: 1em;
             padding-top: 0.5em;
-            /* 8/16 */
             font-family: Roboto-Condensed-Bold;
             line-height: 1em;
         }
@@ -1151,19 +1043,15 @@ input, button, textarea {
 }
 .user-tab {
     height: 2.5em;
-    /* 40/16 */
     background: #fff;
     .item {
         line-height: 0.875em;
-        /* 14/16 */
         width: 50%;
         border: 0.0625em solid #ddd;
-        /* 1/16 */
         border-left: none;
         float: left;
         height: 100%;
         padding-top: 0.3125em;
-        /* 5/16 */
         span {
             color: #999;
             width: 100%;
@@ -1179,29 +1067,26 @@ input, button, textarea {
 .label {
     width: 100%;
     padding: 0.625em 0.625em 0.125em 0.625em;
-    /* 10/16 */
-    /* 10/16 */
-    /* 2/16 */
-    /* 10/16 */
     color: #555;
     font-size: 1.125em;
-    /* 18/16 */
+}
+.label-space {
+    width: 100%;
+    padding: 0.625em 0.625em 0.125em 0.625em;
+    color: #555;
+    font-size: 1.125em;
 }
 .labelItem {
     width: 100%;
     height: 2.8125em;
-    /* 45/16 */
     background: #fff;
     border-bottom: 0.0625em solid #ddd;
-    /* 1/16 */
     padding: 0.625em;
-    /* 10/16 */
     font-size: 1em;
 }
 .login-form {
     width: 80%;
     height: 20em;
-    /* 320/16 */
     position: absolute;
     left: 10%;
     top: 5%;
@@ -1213,25 +1098,19 @@ input, button, textarea {
         text-align: center;
         color: @green;
         font-size: 2.8125em;
-        /* 45/16 */
         margin-bottom: 5%;
     }
     input {
         outline: none;
         padding: 0.625em;
-        /* 10/16 */
         font-size: 0.9em;
         border: 0.125em solid #ddd;
-        /* 1/16 */
         width: 100%;
         border-top: 0em solid #ddd;
-        /* 0/16 */
         -webkit-border-radius: 0em;
-        /* 0/16 */
     }
     input:first-of-type, .first {
         border-top: 0.125em solid #ddd;
-        /* 1/16 */
         border-top-right-radius: $radius;
         border-top-left-radius: $radius;
     }
@@ -1239,19 +1118,15 @@ input, button, textarea {
         border-bottom-right-radius: $radius;
         border-bottom-left-radius: $radius;
         margin-bottom: 1.875em;
-        /* 30/16 */
     }
     .first {
         margin-top: 0.625em;
-        /* 10/16 */
     }
     button {
         font-family: Roboto-Condensed;
         width: 100%;
         height: 2.5em;
-        /* 40/16 */
         margin-top: 0.3125em;
-        /* 5/16 */
         color: #fff;
         font-size: 1em;
         outline: none;
@@ -1538,23 +1413,19 @@ input, button, textarea {
         text-align: center;
         color: #eee;
         font-size: 1.25em;
-        /* 20/16 */
     }
     .text {
         padding-top: 0.3125em;
-        /* 5/16 */
         font-size: 1em;
         display: block;
         width: 100%;
         text-align: center;
         color: #eee;
         font-size: 1.125em;
-        /* 18/16 */
         font-family: Roboto-Condensed-Light;
     }
 }
-/*----------------------------- */
- .nodata {
+.nodata {
     width: 100%;
     padding-top: 1.5625em;
     text-align: center;
@@ -1581,4 +1452,10 @@ input, button, textarea {
 .invalid {
     background: #BD2040 !important;
     border: none;
+}
+.circle{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: 50%;
 }

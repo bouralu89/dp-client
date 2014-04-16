@@ -12,6 +12,7 @@ angular.module('HybridApp')
 
         Taskservice.get(taskID, true).then(function(task) {
             Navbar.setTitle(moment(new Date(task.endDate)).fromNow(true));
+            $scope.teamID = task.team._id;
             $scope.task = task;
         }, function() {
             Notificationservice.alert('Error while getting task...');

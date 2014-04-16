@@ -283,6 +283,10 @@ module.exports = function(grunt) {
                 'build_www',
                 'cordovacli:build_' + arg1
             ]);
+        } else if (arguments.length == 0) {
+            grunt.task.run([
+                'build_www'
+            ]);
         };
     });
     grunt.registerTask('emulate', function(arg1) {

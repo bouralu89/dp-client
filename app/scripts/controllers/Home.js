@@ -13,7 +13,7 @@ angular.module('HybridApp')
         var id = user._id;
 
         function setTitle() {
-            Navbar.setTitle(user.first_name + ' ' + user.surname);
+            Navbar.setTitle(user.firstName + ' ' + user.lastName);
         }
 
         function removeTitle() {
@@ -119,6 +119,21 @@ angular.module('HybridApp')
                 $scope.loading = !$scope.loading;
             });
 
+        };
+        $scope.thisMonth = function (task) {
+            if(moment(task.endDate) <= moment().add('d', 31)){
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.laterThisYear = function (task) {
+            var today = moment();
+            if(today.add('d', 31) < moment(task.endDate) && moment(task.endDate) < moment(new Date(today.year() + 1, 1, 1))){
+                return true;
+            } else {
+                return false;
+            }
         };
 
     });
