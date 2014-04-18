@@ -22,7 +22,9 @@ angular.module('HybridApp')
         Taskservice.getCurrentByTeam(teamId, false).then(function(tasks) {
             $scope.tasks = tasks;
         });
+
         Taskservice.getArchiveByTeam(teamId, true).then(function(tasks) {
+            console.log(tasks);
             $scope.oldtasks = tasks;
         });
     });

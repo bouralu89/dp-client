@@ -8,13 +8,16 @@
             </div>
         </div>
         <div id="task-detail">
-            <div class="dates" id="dates">
-                <span bo-text="task.created | format:'DD.MM.YYYY HH:mm'" id="created"></span>
-                <span bo-text="task.endDate | format:'DD.MM.YYYY HH:mm'" id="deadline"></span>
-                <span id="created_desc">created</span>
-                <span id="deadline_desc">deadline</span>
+            <div class="info-tab">
+                <div class="item" ng-click="go_to('/Tasks/' + team._id + '/current')">
+                    <span bo-text="task.created | format:'DD.MM.YYYY HH:mm'" class="value"></span>
+                    <span class="text">Created</span>
+                </div>
+                <div class="item" ng-click="go_to('/TeamUsers/' + team._id)">
+                    <span bo-text="task.endDate | format:'DD.MM.YYYY HH:mm'" class="value"></span>
+                    <span class="text">Deadline</span>
+                </div>
             </div>
-
         </div>
 
         <div class="task_text notepad">

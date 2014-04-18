@@ -57,13 +57,10 @@
 
     <!-- Tasks View -->
     <div ng-switch-when="Tasks">
-        <div class="nodata" ng-if="tasks.length == 0">
-            No tasks
-        </div>
         <div class="label">
             Next 30 days
         </div>
-        <a href="" bindonce ng-repeat="task in tasks | filter:thisMonth" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+        <a href="" bindonce ng-repeat="task in thisMothTasks = (tasks | filter:thisMonth)" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
             <div class="logo">
                 <img bo-src="url + '/team/' + task.team._id + '/img'" alt="">
                 <div class="overlay">
@@ -76,10 +73,13 @@
                 <span id="subtitle" bo-text="task.team.name"></span>
             </div>
         </a>
+        <div class="nodata-sm" ng-if="thisMothTasks.length == 0">
+            No tasks
+        </div>
         <div class="label-space">
             Later this year
         </div>
-        <a href="" bindonce ng-repeat="task in tasks | filter:laterThisYear" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
+        <a href="" bindonce ng-repeat="task in laterTasks = (tasks | filter:laterThisYear)" class="list" ng-click="go_to('/TaskDetail/' + task._id)">
             <div class="logo">
                 <img bo-src="url + '/team/' + task.team._id + '/img'" alt="">
                 <div class="overlay">
@@ -92,5 +92,8 @@
                 <span id="subtitle" bo-text="task.team.name"></span>
             </div>
         </a>
+        <div class="nodata-sm" ng-if="laterTasks.length == 0">
+            No tasks
+        </div>
     </div>
 </div>

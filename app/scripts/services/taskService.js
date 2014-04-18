@@ -6,13 +6,24 @@ angular.module('HybridApp')
         var userid = Auth.getIdentity()._id;
 
         return {
-            createTask: function(task) {
+            create: function(task) {
                 var deferred = $q.defer();
                 Rest(false).all('task').post(task).then(function() {
                     deferred.resolve();
                 }, function() {
                     deferred.reject();
                 });
+                return deferred.promise;
+            },
+            update: function(task) {
+                var deferred = $q.defer();
+
+                Rest(false).one('task', task._id).put(task).then(function() {
+                    deferred.resolve();
+                }, function() {
+                    deferred.reject();
+                });
+
                 return deferred.promise;
             },
             delete: function(id) {

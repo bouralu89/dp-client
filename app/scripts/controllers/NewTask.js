@@ -20,7 +20,7 @@ angular.module('HybridApp')
                 Notificationservice.alert('Wrong date.');
                 return
             };
-            Taskservice.createTask(task).then(function(err) {
+            Taskservice.create(task).then(function(err) {
                 task.endDate = moment($scope.task.endDate).format("DD.MM.YYYY HH:mm");
                 Notificationservice.alert('Done');
             }, function() {

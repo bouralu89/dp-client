@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('HybridApp')
-    .controller('EdittaskCtrl', function(Navbar, $scope, $window, Sharedproperties, Notificationservice) {
+    .controller('EdittaskCtrl', function(Navbar, $scope, $window, Sharedproperties, Notificationservice, Restangular) {
 
         Navbar.init('Edit task', {
             'back': true,
@@ -13,13 +13,13 @@ angular.module('HybridApp')
         $scope.task.endDate = moment($scope.task.endDate).format("DD.MM.YYYY HH:mm");
 
         $scope.$on('save', function() {
-            var task = $scope.task;
-            task.endDate = moment(task.endDate, "DD.MM.YYYY hh:mm");
+            var task = Restangular.copy($scope.task);
+            task.endDate = moment(new Date($scope.task.endDate).toISOString(), 'YYYY-DD-MM HH:mm');
             task.put().then(function() {
-                task.endDate = moment($scope.task.endDate).format("DD.MM.YYYY HH:mm");
+                $scope.task.endDate = moment(task.endDate).format("DD.MM.YYYY HH:mm");
                 Notificationservice.alert('Task has been updated.');
             }, function() {
-                task.endDate = moment($scope.task.endDate).format("DD.MM.YYYY HH:mm");
+                $scope.task.endDate = moment(task.endDate).format("DD.MM.YYYY HH:mm");
                 Notificationservice.error('Error while updating task.');
             });
         });

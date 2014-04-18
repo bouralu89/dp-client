@@ -26,14 +26,14 @@
             <span bo-text="team.manager.firstName + ' ' + team.manager.lastName" id="manager"></span>
         </div>
     </div>
-    <div class="team-tab">
+    <div class="info-tab">
         <div class="item" ng-click="go_to('/Tasks/' + team._id + '/current')">
             <span bo-text="team.tasksNumber" class="value"></span>
-            <span>Current tasks</span>
+            <span class="text">Current tasks</span>
         </div>
         <div class="item" ng-click="go_to('/TeamUsers/' + team._id)">
             <span bo-text="team.users.length" class="value"></span>
-            <span>Users</span>
+            <span class="text">Users</span>
         </div>
     </div>
     <div id="team_msgs">
