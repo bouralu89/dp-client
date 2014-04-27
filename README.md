@@ -1,7 +1,7 @@
 dp-client
 ==========================
 
-This is AngularJS and Apache Cordova mobile hybrid app created as a client part of my diploma thesis.
+This is AngularJS and Apache Cordova mobile hybrid app build as a part of my diploma thesis.
 
 ## Requires
 
